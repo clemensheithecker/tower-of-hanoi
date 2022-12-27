@@ -18,7 +18,9 @@ const TowerButton = ({
     <button
       onClick={() => handleClick(number)}
       className={`flex flex-col rounded-2xl p-8 shadow-sm ${
-        selected ? "bg-gray-300 " : "bg-gray-100 hover:bg-gray-200"
+        selected
+          ? "bg-gray-200 ring-4 ring-gray-400"
+          : "bg-gray-100 hover:bg-gray-200"
       }`}
     >
       <div className="flex w-full items-center justify-between">
