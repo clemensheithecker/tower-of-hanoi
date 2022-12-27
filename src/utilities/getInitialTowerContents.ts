@@ -8,24 +8,34 @@ export const getInitialTowerContents = ({
 }: {
   numberDisks: number;
   backgroundColorClasses: string[];
-}): TowerContent[] => [
-  {
-    towerNumber: 0,
-    disks: Array.from({ length: numberDisks }, (_, index) => ({
-      position: index,
-      width: getDiskWidth({ initialPosition: index, numberDisks }),
-      backgroundColorClass: getBackgroundColorClass({
-        initialPosition: index,
-        backgroundColorClasses,
-      }),
-    })),
-  },
-  {
-    towerNumber: 1,
-    disks: [],
-  },
-  {
-    towerNumber: 2,
-    disks: [],
-  },
-];
+}): TowerContent[] => {
+  if (numberDisks < 3) {
+    throw new Error("The number of disks must be at least 3.");
+  }
+
+  if (backgroundColorClasses.length === 0) {
+    throw new Error("The background color classes array is empty.");
+  }
+
+  return [
+    {
+      towerNumber: 0,
+      disks: Array.from({ length: numberDisks }, (_, index) => ({
+        position: index,
+        width: getDiskWidth({ initialPosition: index, numberDisks }),
+        backgroundColorClass: getBackgroundColorClass({
+          initialPosition: index,
+          backgroundColorClasses,
+        }),
+      })),
+    },
+    {
+      towerNumber: 1,
+      disks: [],
+    },
+    {
+      towerNumber: 2,
+      disks: [],
+    },
+  ];
+};
