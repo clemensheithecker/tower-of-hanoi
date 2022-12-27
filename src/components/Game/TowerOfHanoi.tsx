@@ -1,10 +1,28 @@
 import { useState } from "react";
-import Tower from "./Tower";
+import { getInitialTowerContents, getTowerContent } from "../../utilities";
+import TowerButton from "./TowerButton";
+import { TowerContent } from "./types";
 
-const TOWERS = [1, 2, 3];
+const BACKGROUND_COLOR_CLASSES = [
+  "bg-rose-500",
+  "bg-amber-500",
+  "bg-emerald-500",
+  "bg-sky-500",
+  "bg-violet-500",
+  "bg-fuchsia-500",
+];
+const NUMBER_DISKS = 4;
+const NUMBER_TOWERS = 3;
 
 const TowerOfHanoi = () => {
+  const initialTowerContents = getInitialTowerContents({
+    numberDisks: NUMBER_DISKS,
+    backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
+  });
+
   const [selected, setSelected] = useState<number | undefined>(undefined);
+  const [towerContents, setTowerContents] =
+    useState<TowerContent[]>(initialTowerContents);
 
   const handleClick = (towerNumber: number) => {
     if (selected === towerNumber) {
@@ -16,15 +34,26 @@ const TowerOfHanoi = () => {
 
   return (
     <section className="mt-8 grid grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3">
-      {TOWERS.map((tower) => {
-        return (
-          <Tower
-            number={tower}
-            selected={selected === tower}
-            handleClick={handleClick}
-            key={tower}
-          />
-        );
+      {[...Array(NUMBER_TOWERS)].map((_, index) => {
+        const towerContent = getTowerContent({
+          towerNumber: index,
+          towerContents,
+        });
+
+        if (towerContent) {
+          return (
+            <TowerButton
+              number={index}
+              numberDisks={NUMBER_DISKS}
+              selected={selected === index}
+              disks={towerContent.disks}
+              handleClick={handleClick}
+              key={index}
+            />
+          );
+        } else {
+          throw new Error("Cannot find tower content.");
+        }
       })}
     </section>
   );
