@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      <p className="mt-8 text-center text-gray-800">
+    <footer className="mt-8">
+      <p className="text-center text-gray-800">
         Made with ❤️ by{" "}
         <a className="font-semibold" href="https://clemensheithecker.com/">
           Clemens&nbsp;Heithecker
