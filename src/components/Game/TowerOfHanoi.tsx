@@ -15,7 +15,7 @@ const BACKGROUND_COLOR_CLASSES = [
   "bg-violet-500",
   "bg-fuchsia-500",
 ];
-const NUMBER_DISKS = 4;
+const NUMBER_DISKS = 5;
 const NUMBER_TOWERS = 3;
 
 const TowerOfHanoi = () => {

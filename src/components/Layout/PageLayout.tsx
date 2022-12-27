@@ -3,8 +3,8 @@ import Footer from "./Footer";
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="mx-auto flex max-w-screen-lg flex-col px-6 py-12 sm:justify-center">
+    <div className="flex min-h-screen flex-col bg-gray-50 sm:justify-center">
+      <div className="mx-auto max-w-screen-lg px-6 py-12">
         <main>{children}</main>
         <Footer />
       </div>
