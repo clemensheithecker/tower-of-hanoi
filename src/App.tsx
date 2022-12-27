@@ -1,3 +1,4 @@
+import TowerOfHanoi from "./components/Game/TowerOfHanoi";
 import PageLayout from "./components/Layout/PageLayout";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           Learn more <span className="aria-hidden">→</span>
         </a>
       </div>
+      <TowerOfHanoi />
     </PageLayout>
   );
 };
