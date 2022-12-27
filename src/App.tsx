@@ -1,8 +1,10 @@
+import PageLayout from "./components/Layout/PageLayout";
+
 const App = () => {
   return (
-    <main>
-      <h1 className="text-3xl font-bold">Hello world!</h1>
-    </main>
+    <PageLayout>
+      <h1 className="text-4xl font-bold text-gray-800">The Tower of Hanoi</h1>
+    </PageLayout>
   );
 };
 
