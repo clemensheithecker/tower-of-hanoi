@@ -21,18 +21,6 @@ export const moveDisk = ({
     towerContents,
   });
 
-  if (!fromTowerContent && !toTowerContent) {
-    throw new Error("Cannot find the from nor the to tower content.");
-  }
-
-  if (!fromTowerContent) {
-    throw new Error("Cannot find the from tower content.");
-  }
-
-  if (!toTowerContent) {
-    throw new Error("Cannot find the to tower content.");
-  }
-
   if (fromTowerContent === toTowerContent) {
     throw new Error("Cannot move a disk to same tower.");
   }

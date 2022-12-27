@@ -207,7 +207,8 @@ describe("moveDisk", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_ERROR_MESSAGE = "Cannot find the from tower content.";
+    const EXPECTED_ERROR_MESSAGE =
+      'Cannot find the tower content for tower number "4"';
 
     // When
     const actualMoveDisk = () =>
@@ -238,7 +239,8 @@ describe("moveDisk", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_ERROR_MESSAGE = "Cannot find the to tower content.";
+    const EXPECTED_ERROR_MESSAGE =
+      'Cannot find the tower content for tower number "5".';
 
     // When
     const actualMoveDisk = () =>
@@ -270,7 +272,7 @@ describe("moveDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      "Cannot find the from nor the to tower content.";
+      'Cannot find the tower content for tower number "4".';
 
     // When
     const actualMoveDisk = () =>

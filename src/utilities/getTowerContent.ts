@@ -6,7 +6,16 @@ export const getTowerContent = ({
 }: {
   towerNumber: number;
   towerContents: TowerContent[];
-}): TowerContent | undefined =>
-  towerContents.find(
+}): TowerContent => {
+  const towerContent = towerContents.find(
     (towerContent) => towerContent.towerNumber === towerNumber
   );
+
+  if (!towerContent) {
+    throw new Error(
+      `Cannot find the tower content for tower number "${towerNumber}".`
+    );
+  }
+
+  return towerContent;
+};
