@@ -1,3 +1,11 @@
+const getRoundedNumber = ({
+  number,
+  decimalPlaces,
+}: {
+  number: number;
+  decimalPlaces: number;
+}): number => Number(Math.round(Number(number + "e+2")) + "e-2");
+
 const getDiskWidth = ({
   initialPosition,
   numberDisks,
@@ -10,7 +18,7 @@ const getDiskWidth = ({
   const diskWidth =
     MAX_WIDTH - (initialPosition * (MAX_WIDTH - MIN_WIDTH)) / (numberDisks - 1);
 
-  return Number(diskWidth.toFixed(2));
+  return getRoundedNumber({ number: diskWidth, decimalPlaces: 2 });
 };
 
 export default getDiskWidth;
