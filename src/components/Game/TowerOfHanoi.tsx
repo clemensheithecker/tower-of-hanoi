@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getInitialTowerContents,
   getTowerContent,
@@ -6,6 +6,7 @@ import {
 } from "../../utilities";
 import TowerButton from "./TowerButton";
 import { TowerContent } from "./types";
+import Notification from "./Notification";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",
@@ -27,6 +28,19 @@ const TowerOfHanoi = () => {
   const [selected, setSelected] = useState<number | undefined>(undefined);
   const [towerContents, setTowerContents] =
     useState<TowerContent[]>(initialTowerContents);
+  const [notification, setNotification] = useState<
+    { message: string; type: string } | undefined
+  >(undefined);
+
+  useEffect(() => {
+    if (notification) {
+      const timeout = setTimeout(() => {
+        setNotification(undefined);
+      }, 5000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [notification]);
 
   const handleClick = (towerNumber: number) => {
     if (selected === undefined) {
@@ -34,19 +48,32 @@ const TowerOfHanoi = () => {
     } else if (selected === towerNumber) {
       setSelected(undefined);
     } else {
-      const updatedTowerContents = moveDisk({
-        fromTowerNumber: selected,
-        toTowerNumber: towerNumber,
-        towerContents,
-      });
+      try {
+        const updatedTowerContents = moveDisk({
+          fromTowerNumber: selected,
+          toTowerNumber: towerNumber,
+          towerContents,
+        });
 
-      setTowerContents(updatedTowerContents);
-      setSelected(undefined);
+        setTowerContents(updatedTowerContents);
+        setSelected(undefined);
+      } catch (error) {
+        let message = "Unknown Error";
+        if (error instanceof Error) message = error.message;
+
+        setNotification({
+          message,
+          type: "error",
+        });
+      }
     }
   };
 
   return (
     <section className="mt-8 grid grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3">
+      {notification && (
+        <Notification message={notification.message} type={notification.type} />
+      )}
       {[...Array(NUMBER_TOWERS)].map((_, index) => {
         const towerContent = getTowerContent({
           towerNumber: index,
