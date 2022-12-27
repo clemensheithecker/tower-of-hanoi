@@ -43,8 +43,8 @@ export const moveDisk = ({
 
   if (toTowerContent.disks.length !== 0) {
     if (
-      fromTowerContent.disks[fromTowerContent.disks.length - 1].position >
-      toTowerContent.disks[toTowerContent.disks.length - 1].position
+      fromTowerContent.disks[fromTowerContent.disks.length - 1].width >
+      toTowerContent.disks[toTowerContent.disks.length - 1].width
     ) {
       throw new Error("Cannot move a larger disk onto a smaller disk.");
     }
