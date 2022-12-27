@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { getInitialTowerContents, getTowerContent } from "../../utilities";
+import {
+  getInitialTowerContents,
+  getTowerContent,
+  moveDisk,
+} from "../../utilities";
 import TowerButton from "./TowerButton";
 import { TowerContent } from "./types";
 
@@ -25,10 +29,19 @@ const TowerOfHanoi = () => {
     useState<TowerContent[]>(initialTowerContents);
 
   const handleClick = (towerNumber: number) => {
-    if (selected === towerNumber) {
+    if (selected === undefined) {
+      setSelected(towerNumber);
+    } else if (selected === towerNumber) {
       setSelected(undefined);
     } else {
-      setSelected(towerNumber);
+      const updatedTowerContents = moveDisk({
+        fromTowerNumber: selected,
+        toTowerNumber: towerNumber,
+        towerContents,
+      });
+
+      setTowerContents(updatedTowerContents);
+      setSelected(undefined);
     }
   };
 
