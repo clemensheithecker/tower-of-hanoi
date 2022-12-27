@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# The Tower of Hanoi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) is a classic mathematical puzzle that consists of three rods and a number of disks of different sizes. The goal of the game is to move the entire stack of disks from one rod to another rod, subject to the rule that no disk may be placed on top of a smaller disk.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+This web app allows the user to play the Tower of Hanoi game. It includes the following features:
 
-### `npm start`
+- Responsive user interface
+- Dark mode (planned)
+- Game hints (planned)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Stack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This project is built using the following technologies:
 
-### `npm test`
+- [React.js](https://reactjs.org/) for building the user interface
+- [TypeScript](https://www.typescriptlang.org/) for type checking and improved developer experience
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Jest](https://jestjs.io/) for unit testing
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running the app
 
-### `npm run build`
+1. Install the required dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```shell
+    npm install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```shell
+    npm start
+    ```
 
-### `npm run eject`
+    This runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    The page will reload if you make edits. You will also see any lint errors in the console.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Testing the app
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run the tests, use the following command:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```shell
+npm test
+```
 
-## Learn More
+### Building the app
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To create a production build of the app, use the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```shell
+npm run build
+```
+
+This will create a optimized build of the app in the build directory. You can then deploy this build to a web server or hosting service.
+
+Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes. You can then deploy this build to a web server or hosting service.
+
+## Author
+
+[@clemensheithecker](https://www.github.com/clemensheithecker)
