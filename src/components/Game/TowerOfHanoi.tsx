@@ -70,7 +70,7 @@ const TowerOfHanoi = () => {
   };
 
   return (
-    <section className="mt-8 grid grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3">
+    <section className="mt-8 grid w-full grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3">
       {notification && (
         <Notification message={notification.message} type={notification.type} />
       )}
