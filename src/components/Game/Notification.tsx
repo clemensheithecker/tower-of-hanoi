@@ -17,8 +17,8 @@ const Notification = ({ message, type }: NotificationProps) => {
             : "bg-green-100 text-green-800"
         }`}
       >
-        {type === "error" && (
-          <span className="mr-3">
+        <span className="mr-3">
+          {type === "error" ? (
             <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +32,10 @@ const Notification = ({ message, type }: NotificationProps) => {
                 clipRule="evenodd"
               />
             </svg>
-          </span>
-        )}
+          ) : (
+            "🎉"
+          )}
+        </span>
         {message}
       </p>
     </div>

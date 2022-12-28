@@ -7,6 +7,8 @@ import {
 import TowerButton from "./TowerButton";
 import { TowerContent } from "./types";
 import Notification from "./Notification";
+import getHasWon from "../../utilities/getHasWon";
+import confetti from "canvas-confetti";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",
@@ -16,7 +18,7 @@ const BACKGROUND_COLOR_CLASSES = [
   "bg-violet-500",
   "bg-fuchsia-500",
 ];
-const NUMBER_DISKS = 5;
+const NUMBER_DISKS = 3;
 const NUMBER_TOWERS = 3;
 
 const TowerOfHanoi = () => {
@@ -31,6 +33,23 @@ const TowerOfHanoi = () => {
   const [notification, setNotification] = useState<
     { message: string; type: string } | undefined
   >(undefined);
+  const [hasWon, setHasWon] = useState(false);
+
+  useEffect(() => {
+    if (hasWon) {
+      setNotification({
+        message: "Congratulations, you won!",
+        type: "success",
+      });
+
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        disableForReducedMotion: true,
+      });
+    }
+  }, [hasWon]);
 
   useEffect(() => {
     if (notification) {
@@ -57,6 +76,10 @@ const TowerOfHanoi = () => {
 
         setTowerContents(updatedTowerContents);
         setSelected(undefined);
+
+        if (getHasWon({ towerContents, numberDisks: NUMBER_DISKS })) {
+          setHasWon(true);
+        }
       } catch (error) {
         let message = "Unknown Error";
         if (error instanceof Error) message = error.message;
