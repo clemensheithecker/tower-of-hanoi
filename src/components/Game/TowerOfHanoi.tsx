@@ -9,6 +9,7 @@ import { TowerContent } from "./types";
 import Notification from "./Notification";
 import getHasWon from "../../utilities/getHasWon";
 import confetti from "canvas-confetti";
+import solveHanoi from "../../utilities/solveHanoi";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",
@@ -27,13 +28,13 @@ const TowerOfHanoi = () => {
     backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
   });
 
-  const [selected, setSelected] = useState<number | undefined>(undefined);
-  const [towerContents, setTowerContents] =
-    useState<TowerContent[]>(initialTowerContents);
+  const [hasWon, setHasWon] = useState(false);
   const [notification, setNotification] = useState<
     { message: string; type: string } | undefined
   >(undefined);
-  const [hasWon, setHasWon] = useState(false);
+  const [selected, setSelected] = useState<number | undefined>(undefined);
+  const [towerContents, setTowerContents] =
+    useState<TowerContent[]>(initialTowerContents);
 
   useEffect(() => {
     if (hasWon) {
@@ -93,32 +94,51 @@ const TowerOfHanoi = () => {
   };
 
   return (
-    <section className="mt-8 grid w-full grid-cols-2 gap-4 sm:grid-cols-3">
-      {notification && (
-        <Notification message={notification.message} type={notification.type} />
-      )}
-      {[...Array(NUMBER_TOWERS)].map((_, index) => {
-        const towerContent = getTowerContent({
-          towerNumber: index,
-          towerContents,
-        });
+    <div>
+      <section className="mt-8 grid w-full grid-cols-2 gap-4 sm:grid-cols-3">
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+          />
+        )}
+        {[...Array(NUMBER_TOWERS)].map((_, index) => {
+          const towerContent = getTowerContent({
+            towerNumber: index,
+            towerContents,
+          });
 
-        if (towerContent) {
-          return (
-            <TowerButton
-              number={index}
-              numberDisks={NUMBER_DISKS}
-              selected={selected === index}
-              disks={towerContent.disks}
-              handleClick={handleClick}
-              key={index}
-            />
-          );
-        } else {
-          throw new Error("Cannot find tower content.");
-        }
-      })}
-    </section>
+          if (towerContent) {
+            return (
+              <TowerButton
+                number={index}
+                numberDisks={NUMBER_DISKS}
+                selected={selected === index}
+                disks={towerContent.disks}
+                handleClick={handleClick}
+                key={index}
+              />
+            );
+          } else {
+            throw new Error("Cannot find tower content.");
+          }
+        })}
+      </section>
+      <div className="flex justify-center">
+        <button
+          onClick={() =>
+            solveHanoi({
+              numberDisks: NUMBER_DISKS,
+              fromTowerNumber: 0 + 1,
+              toTowerNumber: 2 + 1,
+            })
+          }
+          className="mt-4 rounded-lg bg-amber-100 py-3 px-4 text-sm font-semibold text-amber-700 hover:bg-amber-200"
+        >
+          Solve the Game
+        </button>
+      </div>
+    </div>
   );
 };
 
