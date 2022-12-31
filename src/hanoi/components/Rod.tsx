@@ -1,8 +1,8 @@
-import { HanoiDisk, HanoiError } from "../../types";
+import { HanoiDisk, HanoiError } from "../types";
 import Disk from "./Disk";
-import Rod from "./Rod";
+import RodSkeleton from "./RodSkeleton";
 
-const Tower = ({
+const Rod = ({
   disks,
   numberDisks,
 }: {
@@ -18,7 +18,7 @@ const Tower = ({
 
   return (
     <>
-      <Rod />
+      <RodSkeleton />
       {disks.map((disk) => (
         <Disk
           position={disk.position}
@@ -33,4 +33,4 @@ const Tower = ({
   );
 };
 
-export default Tower;
+export default Rod;

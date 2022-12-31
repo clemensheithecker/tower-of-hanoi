@@ -1,21 +1,21 @@
 import { HanoiError } from "../types/hanoiErrors";
 
 const getBackgroundColorClass = ({
-  initialPosition,
+  initialDiskPosition,
   backgroundColorClasses,
 }: {
-  initialPosition: number;
+  initialDiskPosition: number;
   backgroundColorClasses: string[];
 }): string => {
-  if (initialPosition < 0) {
-    throw new Error(HanoiError.InvalidInitialPosition);
+  if (initialDiskPosition < 0) {
+    throw new Error(HanoiError.InvalidInitialDiskPosition);
   }
 
   if (backgroundColorClasses.length === 0) {
     throw new Error(HanoiError.BackgroundColorClassesArrayEmpty);
   }
 
-  const index = initialPosition % backgroundColorClasses.length;
+  const index = initialDiskPosition % backgroundColorClasses.length;
 
   return backgroundColorClasses[index];
 };

@@ -1,7 +1,7 @@
-import { HanoiDisk } from "../../types";
-import Tower from "./Tower";
+import { HanoiDisk } from "../types";
+import Rod from "./Rod";
 
-const TowerSelector = ({
+const RodSelector = ({
   handleClick,
   towerNumber,
   disks,
@@ -29,14 +29,14 @@ const TowerSelector = ({
             selected ? "text-blue-600" : "text-gray-900"
           }`}
         >
-          Tower {towerNumber + 1}
+          Rod {towerNumber + 1}
         </h3>
       </div>
       <div className="relative mt-8 flex aspect-[4/3] w-full justify-center">
-        <Tower disks={disks} numberDisks={numberDisks} />
+        <Rod disks={disks} numberDisks={numberDisks} />
       </div>
     </button>
   );
 };
 
-export default TowerSelector;
+export default RodSelector;

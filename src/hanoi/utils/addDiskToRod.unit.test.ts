@@ -1,22 +1,22 @@
 import { HanoiDisk, HanoiTower } from "../types";
-import { addDiskToTowerContent } from "./addDiskToTowerContent";
+import { addDiskToRod } from "./addDiskToRod";
 
-describe("addDiskToTowerContent", () => {
-  it("should add a disk to the tower content", () => {
+describe("addDiskToRod", () => {
+  it("should add a new disk to the top of the rod", () => {
     // Given
-    const TOWER_CONTENT: HanoiTower = {
+    const INITIAl_ROD: HanoiTower = {
       towerNumber: 1,
       disks: [
         { backgroundColorClass: "bg-rose-500", position: 0, width: 0.8 },
         { backgroundColorClass: "bg-amber-500", position: 1, width: 0.58 },
       ],
     };
-    const DISK: HanoiDisk = {
+    const NEW_DISK: HanoiDisk = {
       backgroundColorClass: "bg-emerald-500",
       position: 0,
       width: 0.35,
     };
-    const EXPECTED_TOWER_CONTENT: HanoiTower = {
+    const EXPECTED_UPDATED_ROD: HanoiTower = {
       towerNumber: 1,
       disks: [
         { backgroundColorClass: "bg-rose-500", position: 0, width: 0.8 },
@@ -30,12 +30,12 @@ describe("addDiskToTowerContent", () => {
     };
 
     // When
-    const actualTowerContent = addDiskToTowerContent({
-      towerContent: TOWER_CONTENT,
-      disk: DISK,
+    const updatedRod = addDiskToRod({
+      rod: INITIAl_ROD,
+      disk: NEW_DISK,
     });
 
     // Then
-    expect(actualTowerContent).toStrictEqual(EXPECTED_TOWER_CONTENT);
+    expect(updatedRod).toStrictEqual(EXPECTED_UPDATED_ROD);
   });
 });

@@ -1,11 +1,11 @@
 import { HanoiTower } from "../types";
-import { getTowerContent } from "./getTowerContent";
+import { getRod } from "./getRod";
 
-describe("getTowerContent", () => {
-  it("should return the tower content for a given tower number", () => {
+describe("getRod", () => {
+  it("should return the rod for a given rod number", () => {
     // Given
-    const TOWER_NUMBER = 0;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const ROD_NUMBER = 0;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -18,7 +18,7 @@ describe("getTowerContent", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_TOWER_CONTENT: HanoiTower = {
+    const EXPECTED_ROD: HanoiTower = {
       towerNumber: 0,
       disks: [
         { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
@@ -29,19 +29,19 @@ describe("getTowerContent", () => {
     };
 
     // When
-    const actualTowerContent = getTowerContent({
-      towerNumber: TOWER_NUMBER,
-      towerContents: TOWER_CONTENTS,
+    const rod = getRod({
+      rodNumber: ROD_NUMBER,
+      rods: RODS,
     });
 
     // Then
-    expect(actualTowerContent).toStrictEqual(EXPECTED_TOWER_CONTENT);
+    expect(rod).toStrictEqual(EXPECTED_ROD);
   });
 
-  it("should throw an error if the tower content is not found", () => {
+  it("should throw an error if the rod is not found", () => {
     // Given
-    const TOWER_NUMBER = 4;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const ROD_NUMBER = 4;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -58,31 +58,31 @@ describe("getTowerContent", () => {
       "The tower content for tower number 4 could not be found.";
 
     // When
-    const actualGetTowerContent = () =>
-      getTowerContent({
-        towerNumber: TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const getRodNotFound = () =>
+      getRod({
+        rodNumber: ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualGetTowerContent).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(getRodNotFound).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 
-  it("should throw an error if the tower contents are empty", () => {
+  it("should throw an error if the rods are empty", () => {
     // Given
-    const TOWER_NUMBER = 0;
-    const TOWER_CONTENTS: HanoiTower[] = [];
+    const ROD_NUMBER = 0;
+    const RODS: HanoiTower[] = [];
     const EXPECTED_ERROR_MESSAGE =
       "The tower content for tower number 0 could not be found.";
 
     // When
-    const actualGetTowerContent = () =>
-      getTowerContent({
-        towerNumber: TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const getRodEmptyRods = () =>
+      getRod({
+        rodNumber: ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualGetTowerContent).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(getRodEmptyRods).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 });

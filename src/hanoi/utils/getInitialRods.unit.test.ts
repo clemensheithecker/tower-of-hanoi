@@ -1,10 +1,10 @@
 import { HanoiTower } from "../types";
-import { getInitialTowerContents } from "./getInitialTowerContents";
+import { getInitialRods } from "./getInitialRods";
 
-describe("getInitialTowerContents", () => {
-  it("should return an array of initial tower contents given a number of disks and an array of background color classes", () => {
+describe("getInitialRods", () => {
+  it("should return an array of initial rods given a total number of disks and an array of background color classes", () => {
     // Given
-    const NUMBER_DISKS = 3;
+    const TOTAL_DISKS = 3;
     const BACKGROUND_COLOR_CLASSES = [
       "bg-rose-500",
       "bg-amber-500",
@@ -13,7 +13,7 @@ describe("getInitialTowerContents", () => {
       "bg-violet-500",
       "bg-fuchsia-500",
     ];
-    const EXPECTED_INITIAL_TOWER_CONTENTS: HanoiTower[] = [
+    const EXPECTED_INITIAL_RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -33,18 +33,18 @@ describe("getInitialTowerContents", () => {
     ];
 
     // When
-    const actualInitialTowerContents = getInitialTowerContents({
-      numberDisks: NUMBER_DISKS,
+    const initialRods = getInitialRods({
+      totalDisks: TOTAL_DISKS,
       backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
     });
 
     // Then
-    expect(actualInitialTowerContents).toEqual(EXPECTED_INITIAL_TOWER_CONTENTS);
+    expect(initialRods).toEqual(EXPECTED_INITIAL_RODS);
   });
 
-  it("should throw an error if the number of disks is less than 3", () => {
+  it("should throw an error if the total number of disks is less than 3", () => {
     // Given
-    const NUMBER_DISKS = 2;
+    const TOTAL_DISKS = 2;
     const BACKGROUND_COLOR_CLASSES = [
       "bg-rose-500",
       "bg-amber-500",
@@ -56,31 +56,35 @@ describe("getInitialTowerContents", () => {
     const EXPECTED_ERROR_MESSAGE = "The number of disks must be at least 3.";
 
     // When
-    const actualGetInitialTowerContents = () =>
-      getInitialTowerContents({
-        numberDisks: NUMBER_DISKS,
+    const getInitialRodsTotalDisksLessThanThree = () =>
+      getInitialRods({
+        totalDisks: TOTAL_DISKS,
         backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
       });
 
     // Then
-    expect(actualGetInitialTowerContents).toThrowError(EXPECTED_ERROR_MESSAGE);
+    expect(getInitialRodsTotalDisksLessThanThree).toThrowError(
+      EXPECTED_ERROR_MESSAGE
+    );
   });
 
   it("should throw an error if the background color classes array is empty", () => {
     // Given
-    const NUMBER_DISKS = 3;
+    const TOTAL_DISKS = 3;
     const BACKGROUND_COLOR_CLASSES: string[] = [];
     const EXPECTED_ERROR_MESSAGE =
       "The background color classes array is empty.";
 
     // When
-    const actualGetInitialTowerContents = () =>
-      getInitialTowerContents({
-        numberDisks: NUMBER_DISKS,
+    const getInitialRodsEmptyBackgroundColorClasses = () =>
+      getInitialRods({
+        totalDisks: TOTAL_DISKS,
         backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
       });
 
     // Then
-    expect(actualGetInitialTowerContents).toThrowError(EXPECTED_ERROR_MESSAGE);
+    expect(getInitialRodsEmptyBackgroundColorClasses).toThrowError(
+      EXPECTED_ERROR_MESSAGE
+    );
   });
 });

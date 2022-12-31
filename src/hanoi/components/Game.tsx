@@ -1,16 +1,12 @@
 import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
-import { HanoiError, HanoiTower } from "../../types";
-import {
-  getInitialTowerContents,
-  getTowerContent,
-  moveDisk,
-} from "../../utilities";
-import getHasWon from "../../utilities/getHasWon";
+import { HanoiError, HanoiTower } from "../types";
+import { getInitialRods, getRod, moveTopDisk } from "../utils";
+import getHasWon from "../utils/hasWon";
 import GameRestartButton from "./GameRestartButton";
 import GameSetup from "./GameSetup";
-import Notification from "./Notification";
-import TowerSelector from "./TowerSelector";
+import Notification from "../../components/Notification";
+import TowerSelector from "./RodSelector";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",
@@ -20,12 +16,12 @@ const BACKGROUND_COLOR_CLASSES = [
   "bg-violet-500",
   "bg-fuchsia-500",
 ];
-const NUMBER_DISKS = 3;
-const NUMBER_TOWERS = 3;
+const TOTAL_DISKS = 3;
+const TOTAL_RODS = 3;
 
-const TowerOfHanoi = () => {
-  const initialTowerContents = getInitialTowerContents({
-    numberDisks: NUMBER_DISKS,
+const Game = () => {
+  const initialTowerContents = getInitialRods({
+    totalDisks: TOTAL_DISKS,
     backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
   });
 
@@ -70,16 +66,22 @@ const TowerOfHanoi = () => {
       setSelected(undefined);
     } else {
       try {
-        const updatedTowerContents = moveDisk({
-          fromTowerNumber: selected,
-          toTowerNumber: towerNumber,
-          towerContents,
+        const updatedTowerContents = moveTopDisk({
+          fromRodNumber: selected,
+          toRodNumber: towerNumber,
+          rods: towerContents,
         });
 
         setTowerContents(updatedTowerContents);
         setSelected(undefined);
 
-        if (getHasWon({ towerContents, numberDisks: NUMBER_DISKS })) {
+        if (
+          getHasWon({
+            rods: towerContents,
+            startRodNumber: 0,
+            totalDisks: TOTAL_DISKS,
+          })
+        ) {
           setHasWon(true);
         }
       } catch (error) {
@@ -104,10 +106,10 @@ const TowerOfHanoi = () => {
             type={notification.type}
           />
         )}
-        {[...Array(NUMBER_TOWERS)].map((_, index) => {
-          const towerContent = getTowerContent({
-            towerNumber: index,
-            towerContents,
+        {[...Array(TOTAL_RODS)].map((_, index) => {
+          const towerContent = getRod({
+            rodNumber: index,
+            rods: towerContents,
           });
 
           if (towerContent) {
@@ -117,7 +119,7 @@ const TowerOfHanoi = () => {
                 towerNumber={index}
                 disks={towerContent.disks}
                 selected={selected === index}
-                numberDisks={NUMBER_DISKS}
+                numberDisks={TOTAL_DISKS}
                 key={index}
               />
             );
@@ -131,4 +133,4 @@ const TowerOfHanoi = () => {
   );
 };
 
-export default TowerOfHanoi;
+export default Game;

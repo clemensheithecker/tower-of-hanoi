@@ -1,10 +1,10 @@
 import { HanoiTower } from "../types";
-import { removeTopDiskFromTowerContent } from "./removeTopDiskFromTowerContent";
+import { removeTopDiskFromRod } from "./removeTopDiskFromRod";
 
-describe("removeTopDiskFromTowerContent", () => {
-  it("should remove the top disk from the tower content", () => {
+describe("removeTopDiskFromRod", () => {
+  it("should remove the top disk from the rod", () => {
     // Given
-    const TOWER_CONTENT: HanoiTower = {
+    const ROD: HanoiTower = {
       towerNumber: 0,
       disks: [
         { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
@@ -13,7 +13,7 @@ describe("removeTopDiskFromTowerContent", () => {
         { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
       ],
     };
-    const EXPECTED_TOWER_CONTENT: HanoiTower = {
+    const EXPECTED_ROD_WITHOUT_TOP_DISK: HanoiTower = {
       towerNumber: 0,
       disks: [
         { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
@@ -23,15 +23,15 @@ describe("removeTopDiskFromTowerContent", () => {
     };
 
     // When
-    const actualTowerContent = removeTopDiskFromTowerContent(TOWER_CONTENT);
+    const rodWithoutTopDisk = removeTopDiskFromRod(ROD);
 
     // Then
-    expect(actualTowerContent).toStrictEqual(EXPECTED_TOWER_CONTENT);
+    expect(rodWithoutTopDisk).toStrictEqual(EXPECTED_ROD_WITHOUT_TOP_DISK);
   });
 
-  it("should not remove the top disk from the tower content if the tower content is empty", () => {
+  it("should not remove the top disk from the rod if the rod is empty", () => {
     // Given
-    const TOWER_CONTENT: HanoiTower = {
+    const ROD: HanoiTower = {
       towerNumber: 0,
       disks: [],
     };
@@ -39,10 +39,9 @@ describe("removeTopDiskFromTowerContent", () => {
       "The top disk cannot be removed from an empty tower.";
 
     // When
-    const actualRemoveTopDiskFromTowerContent = () =>
-      removeTopDiskFromTowerContent(TOWER_CONTENT);
+    const removeTopDiskFromRodWithEmptyRod = () => removeTopDiskFromRod(ROD);
 
     // Then
-    expect(actualRemoveTopDiskFromTowerContent).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(removeTopDiskFromRodWithEmptyRod).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 });

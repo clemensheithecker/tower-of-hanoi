@@ -1,12 +1,12 @@
 import { HanoiTower } from "../types";
-import { moveDisk } from "./moveDisk";
+import { moveTopDisk } from "./moveTopDisk";
 
-describe("moveDisk", () => {
-  it("should move the top disk from one tower to another", () => {
+describe("moveTopDisk", () => {
+  it("should move the top disk from one rod to another", () => {
     // Given
-    const FROM_TOWER_NUMBER = 0;
-    const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 0;
+    const TO_ROD_NUMBER = 1;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -19,7 +19,7 @@ describe("moveDisk", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_TOWER_CONTENTS: HanoiTower[] = [
+    const EXPECTED_RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -38,21 +38,21 @@ describe("moveDisk", () => {
     ];
 
     // When
-    const actualTowerContents = moveDisk({
-      fromTowerNumber: FROM_TOWER_NUMBER,
-      toTowerNumber: TO_TOWER_NUMBER,
-      towerContents: TOWER_CONTENTS,
+    const rods = moveTopDisk({
+      fromRodNumber: FROM_ROD_NUMBER,
+      toRodNumber: TO_ROD_NUMBER,
+      rods: RODS,
     });
 
     // Then
-    expect(actualTowerContents).toStrictEqual(EXPECTED_TOWER_CONTENTS);
+    expect(rods).toStrictEqual(EXPECTED_RODS);
   });
 
-  it("should not move the top disk from one tower to another if the disk is larger than the top disk of the destination tower", () => {
+  it("should not move the top disk from one rod to another if the disk is larger than the top disk of the destination rod", () => {
     // Given
-    const FROM_TOWER_NUMBER = 0;
-    const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 0;
+    const TO_ROD_NUMBER = 1;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -73,22 +73,24 @@ describe("moveDisk", () => {
       "A larger disk cannot be moved onto a smaller disk.";
 
     // When
-    const actualMoveDisk = () =>
-      moveDisk({
-        fromTowerNumber: FROM_TOWER_NUMBER,
-        toTowerNumber: TO_TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const moveTopDiskLargerDiskOntoSmallerDisk = () =>
+      moveTopDisk({
+        fromRodNumber: FROM_ROD_NUMBER,
+        toRodNumber: TO_ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualMoveDisk).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(moveTopDiskLargerDiskOntoSmallerDisk).toThrow(
+      EXPECTED_ERROR_MESSAGE
+    );
   });
 
-  it("should not move the top disk from one tower to another if the disk is larger than the top disk of the destination tower and the destination tower has multiple disks", () => {
+  it("should not move the top disk from one rod to another if the disk is larger than the top disk of the destination rod and the destination rod has multiple disks", () => {
     // Given
-    const FROM_TOWER_NUMBER = 2;
-    const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 2;
+    const TO_ROD_NUMBER = 1;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -113,22 +115,24 @@ describe("moveDisk", () => {
       "A larger disk cannot be moved onto a smaller disk.";
 
     // When
-    const actualMoveDisk = () =>
-      moveDisk({
-        fromTowerNumber: FROM_TOWER_NUMBER,
-        toTowerNumber: TO_TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const moveTopDiskLargerDiskOntoSmallerDisk = () =>
+      moveTopDisk({
+        fromRodNumber: FROM_ROD_NUMBER,
+        toRodNumber: TO_ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualMoveDisk).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(moveTopDiskLargerDiskOntoSmallerDisk).toThrow(
+      EXPECTED_ERROR_MESSAGE
+    );
   });
 
-  it("should not move the top disk from one tower to another if the source tower is empty", () => {
+  it("should not move the top disk from one rod to another if the source rod is empty", () => {
     // Given
-    const FROM_TOWER_NUMBER = 2;
-    const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 2;
+    const TO_ROD_NUMBER = 1;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -149,22 +153,22 @@ describe("moveDisk", () => {
       "A disk cannot be moved from an empty tower.";
 
     // When
-    const actualMoveDisk = () =>
-      moveDisk({
-        fromTowerNumber: FROM_TOWER_NUMBER,
-        toTowerNumber: TO_TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const moveTopDiskEmptyRod = () =>
+      moveTopDisk({
+        fromRodNumber: FROM_ROD_NUMBER,
+        toRodNumber: TO_ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualMoveDisk).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(moveTopDiskEmptyRod).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 
-  it("should not move the top disk from one tower to the same tower", () => {
+  it("should not move the top disk from one rod to the same rod", () => {
     // Given
-    const FROM_TOWER_NUMBER = 0;
-    const TO_TOWER_NUMBER = 0;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 0;
+    const TO_ROD_NUMBER = 0;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -180,22 +184,22 @@ describe("moveDisk", () => {
     const EXPECTED_ERROR_MESSAGE = "A disk cannot be moved to the same tower.";
 
     // When
-    const actualMoveDisk = () =>
-      moveDisk({
-        fromTowerNumber: FROM_TOWER_NUMBER,
-        toTowerNumber: TO_TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const moveTopDiskSameRod = () =>
+      moveTopDisk({
+        fromRodNumber: FROM_ROD_NUMBER,
+        toRodNumber: TO_ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualMoveDisk).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(moveTopDiskSameRod).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 
-  it("should throw an error if the from tower is invalid", () => {
+  it("should throw an error if the from rod is invalid", () => {
     // Given
-    const FROM_TOWER_NUMBER = 4;
-    const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 4;
+    const TO_ROD_NUMBER = 1;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -212,22 +216,22 @@ describe("moveDisk", () => {
       "The tower content for tower number 4 could not be found.";
 
     // When
-    const actualMoveDisk = () =>
-      moveDisk({
-        fromTowerNumber: FROM_TOWER_NUMBER,
-        toTowerNumber: TO_TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const moveTopDiskInvalidFromRod = () =>
+      moveTopDisk({
+        fromRodNumber: FROM_ROD_NUMBER,
+        toRodNumber: TO_ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualMoveDisk).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(moveTopDiskInvalidFromRod).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 
-  it("should throw an error if the to tower is invalid", () => {
+  it("should throw an error if the to rod is invalid", () => {
     // Given
-    const FROM_TOWER_NUMBER = 0;
-    const TO_TOWER_NUMBER = 5;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 0;
+    const TO_ROD_NUMBER = 5;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -244,22 +248,22 @@ describe("moveDisk", () => {
       "The tower content for tower number 5 could not be found.";
 
     // When
-    const actualMoveDisk = () =>
-      moveDisk({
-        fromTowerNumber: FROM_TOWER_NUMBER,
-        toTowerNumber: TO_TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const moveTopDiskInvalidToRod = () =>
+      moveTopDisk({
+        fromRodNumber: FROM_ROD_NUMBER,
+        toRodNumber: TO_ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualMoveDisk).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(moveTopDiskInvalidToRod).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 
-  it("should throw an error if the from and to towers are invalid", () => {
+  it("should throw an error if the from and to rods are invalid", () => {
     // Given
-    const FROM_TOWER_NUMBER = 4;
-    const TO_TOWER_NUMBER = 5;
-    const TOWER_CONTENTS: HanoiTower[] = [
+    const FROM_ROD_NUMBER = 4;
+    const TO_ROD_NUMBER = 5;
+    const RODS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -276,14 +280,14 @@ describe("moveDisk", () => {
       "The tower content for tower number 4 could not be found.";
 
     // When
-    const actualMoveDisk = () =>
-      moveDisk({
-        fromTowerNumber: FROM_TOWER_NUMBER,
-        toTowerNumber: TO_TOWER_NUMBER,
-        towerContents: TOWER_CONTENTS,
+    const moveTopDiskInvalidFromAndToRods = () =>
+      moveTopDisk({
+        fromRodNumber: FROM_ROD_NUMBER,
+        toRodNumber: TO_ROD_NUMBER,
+        rods: RODS,
       });
 
     // Then
-    expect(actualMoveDisk).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(moveTopDiskInvalidFromAndToRods).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 });

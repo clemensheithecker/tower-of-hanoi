@@ -1,4 +1,4 @@
-import { HanoiError } from "../../types/hanoiErrors";
+import { HanoiError } from "../hanoi/types/hanoiErrors";
 
 const Notification = ({ message, type }: { message: string; type: string }) => {
   const NOTIFICATION_TYPES = ["error", "success"];

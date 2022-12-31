@@ -1,4 +1,4 @@
-import { convertDecimalToPercentage } from "../../utilities";
+import { convertDecimalToPercentage } from "../../utils";
 
 const Disk = ({
   position,
