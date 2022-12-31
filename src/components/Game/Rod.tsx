@@ -1,4 +1,4 @@
-const TowerSkeleton = () => {
+const Rod = () => {
   return (
     <>
       <div className="absolute bottom-0 h-[7.5%] w-[90%] rounded-md bg-gray-800"></div>
@@ -7,4 +7,4 @@ const TowerSkeleton = () => {
   );
 };
 
-export default TowerSkeleton;
+export default Rod;

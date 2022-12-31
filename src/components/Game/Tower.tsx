@@ -1,5 +1,5 @@
 import DiskComponent from "./Disk";
-import TowerSkeleton from "./TowerSkeleton";
+import Rod from "./Rod";
 import { Disk } from "./types";
 
 const Tower = ({
@@ -14,7 +14,7 @@ const Tower = ({
 
   return (
     <>
-      <TowerSkeleton />
+      <Rod />
       {disks.map((disk) => (
         <DiskComponent
           position={disk.position}
