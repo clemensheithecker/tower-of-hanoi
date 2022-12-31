@@ -1,4 +1,4 @@
-import { HanoiDisk, HanoiTower } from "../components/Game/types";
+import { HanoiDisk, HanoiTower } from "../types";
 import { addDiskToTowerContent } from "./addDiskToTowerContent";
 
 describe("addDiskToTowerContent", () => {

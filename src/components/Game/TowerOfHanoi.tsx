@@ -1,17 +1,16 @@
+import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
+import { HanoiError, HanoiTower } from "../../types";
 import {
   getInitialTowerContents,
   getTowerContent,
   moveDisk,
 } from "../../utilities";
-import TowerSelector from "./TowerSelector";
-import { HanoiTower } from "./types";
-import Notification from "./Notification";
 import getHasWon from "../../utilities/getHasWon";
-import confetti from "canvas-confetti";
-import GameSetup from "./GameSetup";
 import GameRestartButton from "./GameRestartButton";
-import { HanoiError } from "../../types/hanoiErrors";
+import GameSetup from "./GameSetup";
+import Notification from "./Notification";
+import TowerSelector from "./TowerSelector";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",

@@ -1,5 +1,4 @@
-import { HanoiTower } from "../components/Game/types";
-import { HanoiError } from "../types/hanoiErrors";
+import { HanoiError, HanoiTower } from "../types";
 import getBackgroundColorClass from "./getBackgroundColorClass";
 import getDiskWidth from "./getDiskWidth";
 

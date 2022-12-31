@@ -1,5 +1,4 @@
-import { HanoiTower } from "../components/Game/types";
-import { HanoiError } from "../types/hanoiErrors";
+import { HanoiError, HanoiTower } from "../types";
 import { addDiskToTowerContent } from "./addDiskToTowerContent";
 import { getTowerContent } from "./getTowerContent";
 import { removeTopDiskFromTowerContent } from "./removeTopDiskFromTowerContent";

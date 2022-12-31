@@ -1,7 +1,6 @@
-import { HanoiError } from "../../types/hanoiErrors";
+import { HanoiDisk, HanoiError } from "../../types";
 import Disk from "./Disk";
 import Rod from "./Rod";
-import { HanoiDisk } from "./types";
 
 const Tower = ({
   disks,

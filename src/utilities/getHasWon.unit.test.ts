@@ -1,4 +1,4 @@
-import { HanoiTower } from "../components/Game/types";
+import { HanoiTower } from "../types";
 import getHasWon from "./getHasWon";
 
 describe("getHasWon", () => {

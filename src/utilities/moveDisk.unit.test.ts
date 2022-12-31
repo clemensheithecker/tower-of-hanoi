@@ -1,4 +1,4 @@
-import { HanoiTower } from "../components/Game/types";
+import { HanoiTower } from "../types";
 import { moveDisk } from "./moveDisk";
 
 describe("moveDisk", () => {

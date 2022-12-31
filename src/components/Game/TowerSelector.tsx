@@ -1,5 +1,5 @@
+import { HanoiDisk } from "../../types";
 import Tower from "./Tower";
-import { HanoiDisk } from "./types";
 
 const TowerSelector = ({
   handleClick,
