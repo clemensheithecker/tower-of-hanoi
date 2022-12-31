@@ -11,7 +11,7 @@ const Notification = ({ message, type }: NotificationProps) => {
   return (
     <div className="fixed top-0 z-10 w-[calc(100%-3rem)] max-w-[calc(1024px-3rem)]">
       <p
-        className={`mt-4 flex w-full items-center rounded-lg px-4 py-3 leading-normal  shadow-sm ${
+        className={`mt-4 flex w-full items-center rounded-lg px-4 py-3 leading-normal shadow-sm ${
           type === "error"
             ? "bg-red-100 text-red-800"
             : "bg-green-100 text-green-800"

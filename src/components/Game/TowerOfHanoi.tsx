@@ -9,6 +9,8 @@ import { TowerContent } from "./types";
 import Notification from "./Notification";
 import getHasWon from "../../utilities/getHasWon";
 import confetti from "canvas-confetti";
+import GameSetup from "./GameSetup";
+import GameRestartButton from "./GameRestartButton";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",
@@ -93,32 +95,39 @@ const TowerOfHanoi = () => {
   };
 
   return (
-    <section className="mt-8 grid w-full grid-cols-2 gap-4 sm:grid-cols-3">
-      {notification && (
-        <Notification message={notification.message} type={notification.type} />
-      )}
-      {[...Array(NUMBER_TOWERS)].map((_, index) => {
-        const towerContent = getTowerContent({
-          towerNumber: index,
-          towerContents,
-        });
+    <>
+      <GameSetup />
+      <section className="mt-12 grid w-full grid-cols-2 gap-4 sm:grid-cols-3">
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+          />
+        )}
+        {[...Array(NUMBER_TOWERS)].map((_, index) => {
+          const towerContent = getTowerContent({
+            towerNumber: index,
+            towerContents,
+          });
 
-        if (towerContent) {
-          return (
-            <TowerButton
-              number={index}
-              numberDisks={NUMBER_DISKS}
-              selected={selected === index}
-              disks={towerContent.disks}
-              handleClick={handleClick}
-              key={index}
-            />
-          );
-        } else {
-          throw new Error("Cannot find tower content.");
-        }
-      })}
-    </section>
+          if (towerContent) {
+            return (
+              <TowerButton
+                number={index}
+                numberDisks={NUMBER_DISKS}
+                selected={selected === index}
+                disks={towerContent.disks}
+                handleClick={handleClick}
+                key={index}
+              />
+            );
+          } else {
+            throw new Error("Cannot find tower content.");
+          }
+        })}
+      </section>
+      <GameRestartButton />
+    </>
   );
 };
 
