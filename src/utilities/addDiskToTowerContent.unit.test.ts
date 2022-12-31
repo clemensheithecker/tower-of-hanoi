@@ -1,4 +1,4 @@
-import { Disk, TowerContent } from "../components/Game/types";
+import { HanoiDisk, TowerContent } from "../components/Game/types";
 import { addDiskToTowerContent } from "./addDiskToTowerContent";
 
 describe("addDiskToTowerContent", () => {
@@ -11,7 +11,7 @@ describe("addDiskToTowerContent", () => {
         { backgroundColorClass: "bg-amber-500", position: 1, width: 0.58 },
       ],
     };
-    const DISK: Disk = {
+    const DISK: HanoiDisk = {
       backgroundColorClass: "bg-emerald-500",
       position: 0,
       width: 0.35,

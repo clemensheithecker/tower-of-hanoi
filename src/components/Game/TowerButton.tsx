@@ -1,5 +1,5 @@
 import Tower from "./Tower";
-import { Disk } from "./types";
+import { HanoiDisk } from "./types";
 
 const TowerButton = ({
   number,
@@ -11,7 +11,7 @@ const TowerButton = ({
   number: number;
   numberDisks: number;
   selected?: boolean;
-  disks: Disk[];
+  disks: HanoiDisk[];
   handleClick: (towerNumber: number) => void;
 }) => {
   return (
@@ -33,7 +33,7 @@ const TowerButton = ({
         </h3>
       </div>
       <div className="relative mt-8 flex aspect-[4/3] w-full justify-center">
-        <Tower numberDisks={numberDisks} disks={disks} />
+        <Tower disks={disks} numberDisks={numberDisks} />
       </div>
     </button>
   );

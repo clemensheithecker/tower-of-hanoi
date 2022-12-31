@@ -1,13 +1,13 @@
-import DiskComponent from "./Disk";
+import Disk from "./Disk";
 import Rod from "./Rod";
-import { Disk } from "./types";
+import { HanoiDisk } from "./types";
 
 const Tower = ({
-  numberDisks,
   disks,
+  numberDisks,
 }: {
+  disks: HanoiDisk[];
   numberDisks: number;
-  disks: Disk[];
 }) => {
   const BASE_HEIGHT = 0.075;
   const diskHeight = 0.8 / numberDisks;
@@ -16,11 +16,11 @@ const Tower = ({
     <>
       <Rod />
       {disks.map((disk) => (
-        <DiskComponent
+        <Disk
           position={disk.position}
-          height={diskHeight}
           width={disk.width}
           backgroundColorClass={disk.backgroundColorClass}
+          height={diskHeight}
           baseHeight={BASE_HEIGHT}
           key={disk.position}
         />

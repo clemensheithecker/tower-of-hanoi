@@ -1,11 +1,11 @@
-import { Disk, TowerContent } from "../components/Game/types";
+import { HanoiDisk, TowerContent } from "../components/Game/types";
 
 export const addDiskToTowerContent = ({
   towerContent,
   disk,
 }: {
   towerContent: TowerContent;
-  disk: Disk;
+  disk: HanoiDisk;
 }): TowerContent => {
   const initalTopPosition = towerContent.disks.length;
   const newTopDisk = JSON.parse(JSON.stringify(disk));

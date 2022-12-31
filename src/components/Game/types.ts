@@ -1,4 +1,4 @@
-export type Disk = {
+export type HanoiDisk = {
   position: number;
   width: number;
   backgroundColorClass: string;
@@ -6,5 +6,5 @@ export type Disk = {
 
 export type TowerContent = {
   towerNumber: number;
-  disks: Disk[];
+  disks: HanoiDisk[];
 };
