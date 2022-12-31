@@ -54,7 +54,8 @@ describe("getTowerContent", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_ERROR_MESSAGE = `Cannot find the tower content for tower number "${TOWER_NUMBER}".`;
+    const EXPECTED_ERROR_MESSAGE =
+      "The tower content for tower number 4 could not be found.";
 
     // When
     const actualGetTowerContent = () =>
@@ -71,7 +72,8 @@ describe("getTowerContent", () => {
     // Given
     const TOWER_NUMBER = 0;
     const TOWER_CONTENTS: TowerContent[] = [];
-    const EXPECTED_ERROR_MESSAGE = `Cannot find the tower content for tower number "${TOWER_NUMBER}".`;
+    const EXPECTED_ERROR_MESSAGE =
+      "The tower content for tower number 0 could not be found.";
 
     // When
     const actualGetTowerContent = () =>

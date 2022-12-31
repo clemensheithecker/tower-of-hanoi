@@ -1,4 +1,5 @@
 import { TowerContent } from "../components/Game/types";
+import { HanoiError } from "../types/hanoiErrors";
 
 const getHasWon = ({
   towerContents,
@@ -8,11 +9,11 @@ const getHasWon = ({
   numberDisks: number;
 }): boolean => {
   if (towerContents.length === 0) {
-    throw new Error("The tower contents array is empty.");
+    throw new Error(HanoiError.TowerContentsArrayEmpty);
   }
 
   if (numberDisks < 3) {
-    throw new Error("The number of disks must be at least 3.");
+    throw new Error(HanoiError.MinimumNumberOfDisksNotMet);
   }
 
   const filteredTowerContents = [...towerContents].filter(

@@ -1,11 +1,10 @@
-type NotificationProps = {
-  message: string;
-  type: string;
-};
+import { HanoiError } from "../../types/hanoiErrors";
 
-const Notification = ({ message, type }: NotificationProps) => {
-  if (!["error", "success"].includes(type)) {
-    throw new Error("Invalid notification type.");
+const Notification = ({ message, type }: { message: string; type: string }) => {
+  const NOTIFICATION_TYPES = ["error", "success"];
+
+  if (!NOTIFICATION_TYPES.includes(type)) {
+    throw new Error(HanoiError.InvalidNotificationType);
   }
 
   return (

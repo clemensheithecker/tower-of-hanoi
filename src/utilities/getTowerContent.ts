@@ -1,4 +1,5 @@
 import { TowerContent } from "../components/Game/types";
+import { HanoiError } from "../types/hanoiErrors";
 
 export const getTowerContent = ({
   towerNumber,
@@ -13,7 +14,10 @@ export const getTowerContent = ({
 
   if (!towerContent) {
     throw new Error(
-      `Cannot find the tower content for tower number "${towerNumber}".`
+      HanoiError.TowerContentNotFoundForTowerNumber.replace(
+        "%s",
+        towerNumber.toString()
+      )
     );
   }
 

@@ -70,7 +70,7 @@ describe("moveDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      "Cannot move a larger disk onto a smaller disk.";
+      "A larger disk cannot be moved onto a smaller disk.";
 
     // When
     const actualMoveDisk = () =>
@@ -110,7 +110,7 @@ describe("moveDisk", () => {
       },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      "Cannot move a larger disk onto a smaller disk.";
+      "A larger disk cannot be moved onto a smaller disk.";
 
     // When
     const actualMoveDisk = () =>
@@ -145,7 +145,8 @@ describe("moveDisk", () => {
       },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_ERROR_MESSAGE = "Cannot move a disk from an empty tower.";
+    const EXPECTED_ERROR_MESSAGE =
+      "A disk cannot be moved from an empty tower.";
 
     // When
     const actualMoveDisk = () =>
@@ -176,7 +177,7 @@ describe("moveDisk", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_ERROR_MESSAGE = "Cannot move a disk to same tower.";
+    const EXPECTED_ERROR_MESSAGE = "A disk cannot be moved to the same tower.";
 
     // When
     const actualMoveDisk = () =>
@@ -208,7 +209,7 @@ describe("moveDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      'Cannot find the tower content for tower number "4"';
+      "The tower content for tower number 4 could not be found.";
 
     // When
     const actualMoveDisk = () =>
@@ -240,7 +241,7 @@ describe("moveDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      'Cannot find the tower content for tower number "5".';
+      "The tower content for tower number 5 could not be found.";
 
     // When
     const actualMoveDisk = () =>
@@ -272,7 +273,7 @@ describe("moveDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      'Cannot find the tower content for tower number "4".';
+      "The tower content for tower number 4 could not be found.";
 
     // When
     const actualMoveDisk = () =>

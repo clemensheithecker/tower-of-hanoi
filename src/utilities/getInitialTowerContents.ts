@@ -1,4 +1,5 @@
 import { TowerContent } from "../components/Game/types";
+import { HanoiError } from "../types/hanoiErrors";
 import getBackgroundColorClass from "./getBackgroundColorClass";
 import getDiskWidth from "./getDiskWidth";
 
@@ -10,11 +11,11 @@ export const getInitialTowerContents = ({
   backgroundColorClasses: string[];
 }): TowerContent[] => {
   if (numberDisks < 3) {
-    throw new Error("The number of disks must be at least 3.");
+    throw new Error(HanoiError.MinimumNumberOfDisksNotMet);
   }
 
   if (backgroundColorClasses.length === 0) {
-    throw new Error("The background color classes array is empty.");
+    throw new Error(HanoiError.BackgroundColorClassesArrayEmpty);
   }
 
   return [

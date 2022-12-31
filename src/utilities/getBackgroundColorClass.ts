@@ -1,3 +1,5 @@
+import { HanoiError } from "../types/hanoiErrors";
+
 const getBackgroundColorClass = ({
   initialPosition,
   backgroundColorClasses,
@@ -6,11 +8,11 @@ const getBackgroundColorClass = ({
   backgroundColorClasses: string[];
 }): string => {
   if (initialPosition < 0) {
-    throw new Error("The initial position must be at least 0.");
+    throw new Error(HanoiError.InvalidInitialPosition);
   }
 
   if (backgroundColorClasses.length === 0) {
-    throw new Error("The background color classes array is empty.");
+    throw new Error(HanoiError.BackgroundColorClassesArrayEmpty);
   }
 
   const index = initialPosition % backgroundColorClasses.length;

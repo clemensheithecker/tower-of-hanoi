@@ -11,6 +11,7 @@ import getHasWon from "../../utilities/getHasWon";
 import confetti from "canvas-confetti";
 import GameSetup from "./GameSetup";
 import GameRestartButton from "./GameRestartButton";
+import { HanoiError } from "../../types/hanoiErrors";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",
@@ -122,7 +123,7 @@ const TowerOfHanoi = () => {
               />
             );
           } else {
-            throw new Error("Cannot find tower content.");
+            throw new Error(HanoiError.TowerContentNotFound);
           }
         })}
       </section>

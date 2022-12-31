@@ -36,7 +36,7 @@ describe("removeTopDiskFromTowerContent", () => {
       disks: [],
     };
     const EXPECTED_ERROR_MESSAGE =
-      "Cannot remove the top disk from an empty tower.";
+      "The top disk cannot be removed from an empty tower.";
 
     // When
     const actualRemoveTopDiskFromTowerContent = () =>

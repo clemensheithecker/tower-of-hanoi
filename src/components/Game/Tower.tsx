@@ -1,3 +1,4 @@
+import { HanoiError } from "../../types/hanoiErrors";
 import Disk from "./Disk";
 import Rod from "./Rod";
 import { HanoiDisk } from "./types";
@@ -11,6 +12,10 @@ const Tower = ({
 }) => {
   const BASE_HEIGHT = 0.075;
   const diskHeight = 0.8 / numberDisks;
+
+  if (numberDisks < 3) {
+    throw new Error(HanoiError.MinimumNumberOfDisksNotMet);
+  }
 
   return (
     <>

@@ -1,4 +1,5 @@
 import { TowerContent } from "../components/Game/types";
+import { HanoiError } from "../types/hanoiErrors";
 import { addDiskToTowerContent } from "./addDiskToTowerContent";
 import { getTowerContent } from "./getTowerContent";
 import { removeTopDiskFromTowerContent } from "./removeTopDiskFromTowerContent";
@@ -22,11 +23,11 @@ export const moveDisk = ({
   });
 
   if (fromTowerContent === toTowerContent) {
-    throw new Error("Cannot move a disk to same tower.");
+    throw new Error(HanoiError.CannotMoveDiskToSameTower);
   }
 
   if (fromTowerContent.disks.length === 0) {
-    throw new Error("Cannot move a disk from an empty tower.");
+    throw new Error(HanoiError.CannotMoveDiskFromEmptyTower);
   }
 
   if (toTowerContent.disks.length !== 0) {
@@ -34,7 +35,7 @@ export const moveDisk = ({
       fromTowerContent.disks[fromTowerContent.disks.length - 1].width >
       toTowerContent.disks[toTowerContent.disks.length - 1].width
     ) {
-      throw new Error("Cannot move a larger disk onto a smaller disk.");
+      throw new Error(HanoiError.CannotMoveLargerDiskOntoSmallerDisk);
     }
   }
 
