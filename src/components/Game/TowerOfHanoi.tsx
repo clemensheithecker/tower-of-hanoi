@@ -4,7 +4,7 @@ import {
   getTowerContent,
   moveDisk,
 } from "../../utilities";
-import TowerButton from "./TowerButton";
+import TowerSelector from "./TowerSelector";
 import { TowerContent } from "./types";
 import Notification from "./Notification";
 import getHasWon from "../../utilities/getHasWon";
@@ -112,12 +112,12 @@ const TowerOfHanoi = () => {
 
           if (towerContent) {
             return (
-              <TowerButton
-                number={index}
-                numberDisks={NUMBER_DISKS}
-                selected={selected === index}
-                disks={towerContent.disks}
+              <TowerSelector
                 handleClick={handleClick}
+                towerNumber={index}
+                disks={towerContent.disks}
+                selected={selected === index}
+                numberDisks={NUMBER_DISKS}
                 key={index}
               />
             );

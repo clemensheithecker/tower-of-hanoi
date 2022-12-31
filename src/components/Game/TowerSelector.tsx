@@ -1,22 +1,22 @@
 import Tower from "./Tower";
 import { HanoiDisk } from "./types";
 
-const TowerButton = ({
-  number,
-  numberDisks,
-  selected,
-  disks,
+const TowerSelector = ({
   handleClick,
+  towerNumber,
+  disks,
+  selected,
+  numberDisks,
 }: {
-  number: number;
-  numberDisks: number;
-  selected?: boolean;
-  disks: HanoiDisk[];
   handleClick: (towerNumber: number) => void;
+  towerNumber: number;
+  disks: HanoiDisk[];
+  selected?: boolean;
+  numberDisks: number;
 }) => {
   return (
     <button
-      onClick={() => handleClick(number)}
+      onClick={() => handleClick(towerNumber)}
       className={`flex flex-col rounded-2xl p-6 shadow sm:p-8 ${
         selected
           ? "bg-gray-200 shadow-md ring-2 ring-gray-300"
@@ -29,7 +29,7 @@ const TowerButton = ({
             selected ? "text-blue-600" : "text-gray-900"
           }`}
         >
-          Tower {number + 1}
+          Tower {towerNumber + 1}
         </h3>
       </div>
       <div className="relative mt-8 flex aspect-[4/3] w-full justify-center">
@@ -39,4 +39,4 @@ const TowerButton = ({
   );
 };
 
-export default TowerButton;
+export default TowerSelector;
