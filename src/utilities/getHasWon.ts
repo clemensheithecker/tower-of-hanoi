@@ -1,11 +1,11 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { HanoiError } from "../types/hanoiErrors";
 
 const getHasWon = ({
   towerContents,
   numberDisks,
 }: {
-  towerContents: TowerContent[];
+  towerContents: HanoiTower[];
   numberDisks: number;
 }): boolean => {
   if (towerContents.length === 0) {

@@ -1,4 +1,4 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { HanoiError } from "../types/hanoiErrors";
 
 export const getTowerContent = ({
@@ -6,8 +6,8 @@ export const getTowerContent = ({
   towerContents,
 }: {
   towerNumber: number;
-  towerContents: TowerContent[];
-}): TowerContent => {
+  towerContents: HanoiTower[];
+}): HanoiTower => {
   const towerContent = towerContents.find(
     (towerContent) => towerContent.towerNumber === towerNumber
   );

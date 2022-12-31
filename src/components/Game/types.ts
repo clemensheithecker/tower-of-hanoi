@@ -4,7 +4,7 @@ export type HanoiDisk = {
   backgroundColorClass: string;
 };
 
-export type TowerContent = {
+export type HanoiTower = {
   towerNumber: number;
   disks: HanoiDisk[];
 };

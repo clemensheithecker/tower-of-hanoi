@@ -1,10 +1,10 @@
-import { HanoiDisk, TowerContent } from "../components/Game/types";
+import { HanoiDisk, HanoiTower } from "../components/Game/types";
 import { addDiskToTowerContent } from "./addDiskToTowerContent";
 
 describe("addDiskToTowerContent", () => {
   it("should add a disk to the tower content", () => {
     // Given
-    const TOWER_CONTENT: TowerContent = {
+    const TOWER_CONTENT: HanoiTower = {
       towerNumber: 1,
       disks: [
         { backgroundColorClass: "bg-rose-500", position: 0, width: 0.8 },
@@ -16,7 +16,7 @@ describe("addDiskToTowerContent", () => {
       position: 0,
       width: 0.35,
     };
-    const EXPECTED_TOWER_CONTENT: TowerContent = {
+    const EXPECTED_TOWER_CONTENT: HanoiTower = {
       towerNumber: 1,
       disks: [
         { backgroundColorClass: "bg-rose-500", position: 0, width: 0.8 },

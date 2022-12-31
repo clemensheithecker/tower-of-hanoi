@@ -1,9 +1,9 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { HanoiError } from "../types/hanoiErrors";
 
 export const getTowerContentByDiskPositionAscending = (
-  towerContent: TowerContent
-): TowerContent => {
+  towerContent: HanoiTower
+): HanoiTower => {
   if (towerContent.disks.length === 0) {
     throw new Error(HanoiError.TowerContentHasNoDisks);
   }

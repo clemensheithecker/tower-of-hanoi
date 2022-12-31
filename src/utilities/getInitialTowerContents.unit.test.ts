@@ -1,4 +1,4 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { getInitialTowerContents } from "./getInitialTowerContents";
 
 describe("getInitialTowerContents", () => {
@@ -13,7 +13,7 @@ describe("getInitialTowerContents", () => {
       "bg-violet-500",
       "bg-fuchsia-500",
     ];
-    const EXPECTED_INITIAL_TOWER_CONTENTS: TowerContent[] = [
+    const EXPECTED_INITIAL_TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [

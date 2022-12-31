@@ -1,10 +1,10 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import getHasWon from "./getHasWon";
 
 describe("getHasWon", () => {
   it("should return true if the second tower has all disks", () => {
     // Given
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       { towerNumber: 0, disks: [] },
       {
         towerNumber: 1,
@@ -32,7 +32,7 @@ describe("getHasWon", () => {
 
   it("should return true if the third tower has all disks", () => {
     // Given
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       { towerNumber: 0, disks: [] },
       { towerNumber: 1, disks: [] },
       {
@@ -60,7 +60,7 @@ describe("getHasWon", () => {
 
   it("should return false if neither the second nor the third tower have all disks", () => {
     // Given
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -88,7 +88,7 @@ describe("getHasWon", () => {
 
   it("should throw an error if the tower contents array is empty", () => {
     // Given
-    const TOWER_CONTENTS: TowerContent[] = [];
+    const TOWER_CONTENTS: HanoiTower[] = [];
     const NUMBER_DISKS = 4;
     const EXPECTED_ERROR_MESSAGE = "The tower contents array is empty.";
 
@@ -105,7 +105,7 @@ describe("getHasWon", () => {
 
   it("should throw an error if the number of disks is less than 3", () => {
     // Given
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       { towerNumber: 0, disks: [] },
       {
         towerNumber: 1,

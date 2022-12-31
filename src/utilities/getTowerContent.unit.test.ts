@@ -1,11 +1,11 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { getTowerContent } from "./getTowerContent";
 
 describe("getTowerContent", () => {
   it("should return the tower content for a given tower number", () => {
     // Given
     const TOWER_NUMBER = 0;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -18,7 +18,7 @@ describe("getTowerContent", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_TOWER_CONTENT: TowerContent = {
+    const EXPECTED_TOWER_CONTENT: HanoiTower = {
       towerNumber: 0,
       disks: [
         { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
@@ -41,7 +41,7 @@ describe("getTowerContent", () => {
   it("should throw an error if the tower content is not found", () => {
     // Given
     const TOWER_NUMBER = 4;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -71,7 +71,7 @@ describe("getTowerContent", () => {
   it("should throw an error if the tower contents are empty", () => {
     // Given
     const TOWER_NUMBER = 0;
-    const TOWER_CONTENTS: TowerContent[] = [];
+    const TOWER_CONTENTS: HanoiTower[] = [];
     const EXPECTED_ERROR_MESSAGE =
       "The tower content for tower number 0 could not be found.";
 

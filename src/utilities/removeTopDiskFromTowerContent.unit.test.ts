@@ -1,10 +1,10 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { removeTopDiskFromTowerContent } from "./removeTopDiskFromTowerContent";
 
 describe("removeTopDiskFromTowerContent", () => {
   it("should remove the top disk from the tower content", () => {
     // Given
-    const TOWER_CONTENT: TowerContent = {
+    const TOWER_CONTENT: HanoiTower = {
       towerNumber: 0,
       disks: [
         { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
@@ -13,7 +13,7 @@ describe("removeTopDiskFromTowerContent", () => {
         { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
       ],
     };
-    const EXPECTED_TOWER_CONTENT: TowerContent = {
+    const EXPECTED_TOWER_CONTENT: HanoiTower = {
       towerNumber: 0,
       disks: [
         { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
@@ -31,7 +31,7 @@ describe("removeTopDiskFromTowerContent", () => {
 
   it("should not remove the top disk from the tower content if the tower content is empty", () => {
     // Given
-    const TOWER_CONTENT: TowerContent = {
+    const TOWER_CONTENT: HanoiTower = {
       towerNumber: 0,
       disks: [],
     };

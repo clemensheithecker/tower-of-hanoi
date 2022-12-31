@@ -5,7 +5,7 @@ import {
   moveDisk,
 } from "../../utilities";
 import TowerSelector from "./TowerSelector";
-import { TowerContent } from "./types";
+import { HanoiTower } from "./types";
 import Notification from "./Notification";
 import getHasWon from "../../utilities/getHasWon";
 import confetti from "canvas-confetti";
@@ -32,7 +32,7 @@ const TowerOfHanoi = () => {
 
   const [selected, setSelected] = useState<number | undefined>(undefined);
   const [towerContents, setTowerContents] =
-    useState<TowerContent[]>(initialTowerContents);
+    useState<HanoiTower[]>(initialTowerContents);
   const [notification, setNotification] = useState<
     { message: string; type: string } | undefined
   >(undefined);

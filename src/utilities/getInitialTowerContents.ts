@@ -1,4 +1,4 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { HanoiError } from "../types/hanoiErrors";
 import getBackgroundColorClass from "./getBackgroundColorClass";
 import getDiskWidth from "./getDiskWidth";
@@ -9,7 +9,7 @@ export const getInitialTowerContents = ({
 }: {
   numberDisks: number;
   backgroundColorClasses: string[];
-}): TowerContent[] => {
+}): HanoiTower[] => {
   if (numberDisks < 3) {
     throw new Error(HanoiError.MinimumNumberOfDisksNotMet);
   }

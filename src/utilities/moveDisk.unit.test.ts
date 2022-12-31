@@ -1,4 +1,4 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { moveDisk } from "./moveDisk";
 
 describe("moveDisk", () => {
@@ -6,7 +6,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 0;
     const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -19,7 +19,7 @@ describe("moveDisk", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_TOWER_CONTENTS: TowerContent[] = [
+    const EXPECTED_TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -52,7 +52,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 0;
     const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -88,7 +88,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 2;
     const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -128,7 +128,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 2;
     const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -164,7 +164,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 0;
     const TO_TOWER_NUMBER = 0;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -195,7 +195,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 4;
     const TO_TOWER_NUMBER = 1;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -227,7 +227,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 0;
     const TO_TOWER_NUMBER = 5;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [
@@ -259,7 +259,7 @@ describe("moveDisk", () => {
     // Given
     const FROM_TOWER_NUMBER = 4;
     const TO_TOWER_NUMBER = 5;
-    const TOWER_CONTENTS: TowerContent[] = [
+    const TOWER_CONTENTS: HanoiTower[] = [
       {
         towerNumber: 0,
         disks: [

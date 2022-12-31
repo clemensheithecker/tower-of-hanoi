@@ -1,4 +1,4 @@
-import { TowerContent } from "../components/Game/types";
+import { HanoiTower } from "../components/Game/types";
 import { HanoiError } from "../types/hanoiErrors";
 import { addDiskToTowerContent } from "./addDiskToTowerContent";
 import { getTowerContent } from "./getTowerContent";
@@ -11,8 +11,8 @@ export const moveDisk = ({
 }: {
   fromTowerNumber: number;
   toTowerNumber: number;
-  towerContents: TowerContent[];
-}): TowerContent[] => {
+  towerContents: HanoiTower[];
+}): HanoiTower[] => {
   const fromTowerContent = getTowerContent({
     towerNumber: fromTowerNumber,
     towerContents,
