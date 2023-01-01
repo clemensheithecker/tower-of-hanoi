@@ -1,5 +1,5 @@
 import { HanoiTower } from "../types";
-import getInitialRods from "./getInitialRods";
+import getInitialRods from "./getInitialRodStates";
 
 describe("getInitialRods", () => {
   it("should return an array of initial rods given a total number of disks and an array of background color classes", () => {

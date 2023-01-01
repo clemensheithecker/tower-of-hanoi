@@ -2,7 +2,7 @@ export { default as addDiskToRod } from "./addDiskToRod";
 export { default as getBackgroundColorClass } from "./getBackgroundColorClass";
 export { default as getDiskWidth } from "./getDiskWidth";
 export { default as getHasWon } from "./getHasWon";
-export { default as getInitialRods } from "./getInitialRods";
+export { default as getInitialRodStates } from "./getInitialRodStates";
 export { default as getRod } from "./getRod";
 export { default as moveTopDisk } from "./moveTopDisk";
 export { default as removeTopDiskFromRod } from "./removeTopDiskFromRod";

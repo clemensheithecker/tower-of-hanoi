@@ -2,7 +2,7 @@ import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 import { Notification } from "../../components";
 import { HanoiError, HanoiTower } from "../types";
-import { getHasWon, getInitialRods, getRod, moveTopDisk } from "../utils";
+import { getHasWon, getInitialRodStates, getRod, moveTopDisk } from "../utils";
 import GameRestartButton from "./GameRestartButton";
 import GameSetup from "./GameSetup";
 import TowerSelector from "./RodSelector";
@@ -19,14 +19,14 @@ const TOTAL_DISKS = 3;
 const TOTAL_RODS = 3;
 
 const Game = () => {
-  const initialTowerContents = getInitialRods({
+  const initialRodStates = getInitialRodStates({
     totalDisks: TOTAL_DISKS,
     backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
   });
 
   const [selected, setSelected] = useState<number | undefined>(undefined);
   const [towerContents, setTowerContents] =
-    useState<HanoiTower[]>(initialTowerContents);
+    useState<HanoiTower[]>(initialRodStates);
   const [notification, setNotification] = useState<
     { message: string; type: string } | undefined
   >(undefined);
