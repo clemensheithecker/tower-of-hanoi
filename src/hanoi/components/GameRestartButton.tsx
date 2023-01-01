@@ -1,22 +1,30 @@
+import { SecondaryButton } from "../../components/Buttons";
+
+const RestartIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="h-5 w-5"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+      />
+    </svg>
+  );
+};
+
 const GameRestartButton = () => {
   return (
     <div className="mt-8 flex justify-center sm:mt-4 sm:justify-end">
-      <button className="inline-flex items-center justify-center rounded-lg bg-gray-50 py-3 px-4 font-semibold text-gray-900 ring-1 ring-gray-300 hover:bg-gray-100/50 hover:ring-gray-400/75">
+      <SecondaryButton onClick={() => {}} icon={<RestartIcon />}>
         Restart
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="ml-2 h-5 w-5"
-          aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button>
+      </SecondaryButton>
     </div>
   );
 };
