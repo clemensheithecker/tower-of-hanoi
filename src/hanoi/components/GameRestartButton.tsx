@@ -19,10 +19,14 @@ const RestartIcon = () => {
   );
 };
 
-const GameRestartButton = () => {
+const GameRestartButton = ({
+  handleRestart,
+}: {
+  handleRestart: () => void;
+}) => {
   return (
     <div className="mt-8 flex justify-center sm:mt-4 sm:justify-end">
-      <SecondaryButton onClick={() => {}} icon={<RestartIcon />}>
+      <SecondaryButton onClick={handleRestart} icon={<RestartIcon />}>
         Restart
       </SecondaryButton>
     </div>

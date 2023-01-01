@@ -40,6 +40,9 @@ const Game = () => {
     });
 
     setRods(updatedInitialRodStates);
+    setSelected(undefined);
+    setNotification(undefined);
+    setHasWon(false);
   }, [totalDisks]);
 
   useEffect(() => {
@@ -100,6 +103,13 @@ const Game = () => {
     }
   };
 
+  const handleRestart = (): void => {
+    setRods(initialRodStates);
+    setSelected(undefined);
+    setNotification(undefined);
+    setHasWon(false);
+  };
+
   return (
     <>
       <GameSetup totalDisks={totalDisks} setTotalDisks={setTotalDisks} />
@@ -132,7 +142,7 @@ const Game = () => {
           }
         })}
       </section>
-      <GameRestartButton />
+      <GameRestartButton handleRestart={handleRestart} />
     </>
   );
 };
