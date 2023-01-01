@@ -2,7 +2,7 @@ import { HanoiError, HanoiTower } from "../types";
 import getBackgroundColorClass from "./getBackgroundColorClass";
 import getDiskWidth from "./getDiskWidth";
 
-export const getInitialRods = ({
+const getInitialRods = ({
   totalDisks,
   backgroundColorClasses,
 }: {
@@ -41,3 +41,5 @@ export const getInitialRods = ({
 
   return initialRods;
 };
+
+export default getInitialRods;

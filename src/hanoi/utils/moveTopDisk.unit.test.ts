@@ -1,5 +1,5 @@
 import { HanoiTower } from "../types";
-import { moveTopDisk } from "./moveTopDisk";
+import moveTopDisk from "./moveTopDisk";
 
 describe("moveTopDisk", () => {
   it("should move the top disk from one rod to another", () => {

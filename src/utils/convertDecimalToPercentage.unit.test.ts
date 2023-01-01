@@ -1,4 +1,4 @@
-import { convertDecimalToPercentage } from "./convertDecimalToPercentage";
+import convertDecimalToPercentage from "./convertDecimalToPercentage";
 
 describe("convertDecimalToPercentage", () => {
   it("should return a percentage number as a string given a number", () => {

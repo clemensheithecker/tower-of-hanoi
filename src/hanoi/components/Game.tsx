@@ -1,11 +1,10 @@
 import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
+import { Notification } from "../../components";
 import { HanoiError, HanoiTower } from "../types";
-import { getInitialRods, getRod, moveTopDisk } from "../utils";
-import getHasWon from "../utils/hasWon";
+import { getHasWon, getInitialRods, getRod, moveTopDisk } from "../utils";
 import GameRestartButton from "./GameRestartButton";
 import GameSetup from "./GameSetup";
-import Notification from "../../components/Notification";
 import TowerSelector from "./RodSelector";
 
 const BACKGROUND_COLOR_CLASSES = [

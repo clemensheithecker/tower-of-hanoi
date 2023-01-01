@@ -1,4 +1,4 @@
-import { sortDisksByPosition } from "./sortDisksByPosition";
+import sortDisksByPosition from "./sortDisksByPosition";
 
 describe("sortDisksByPosition", () => {
   it("should return a rod with disks in ascending order by position", () => {

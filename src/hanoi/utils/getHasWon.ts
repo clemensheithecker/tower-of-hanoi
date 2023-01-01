@@ -1,6 +1,6 @@
 import { HanoiError, HanoiTower } from "../types";
 
-const hasWon = ({
+const getHasWon = ({
   rods,
   startRodNumber,
   totalDisks,
@@ -36,4 +36,4 @@ const hasWon = ({
   return false;
 };
 
-export default hasWon;
+export default getHasWon;

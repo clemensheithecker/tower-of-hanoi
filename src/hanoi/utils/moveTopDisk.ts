@@ -1,9 +1,9 @@
 import { HanoiError, HanoiTower } from "../types";
-import { addDiskToRod } from "./addDiskToRod";
-import { getRod } from "./getRod";
-import { removeTopDiskFromRod } from "./removeTopDiskFromRod";
+import addDiskToRod from "./addDiskToRod";
+import getRod from "./getRod";
+import removeTopDiskFromRod from "./removeTopDiskFromRod";
 
-export const moveTopDisk = ({
+const moveTopDisk = ({
   fromRodNumber,
   toRodNumber,
   rods,
@@ -52,3 +52,5 @@ export const moveTopDisk = ({
 
   return updatedRods;
 };
+
+export default moveTopDisk;

@@ -1,6 +1,6 @@
 import { HanoiError, HanoiTower } from "../types";
 
-export const getRod = ({
+const getRod = ({
   rodNumber,
   rods,
 }: {
@@ -20,3 +20,5 @@ export const getRod = ({
 
   return rod;
 };
+
+export default getRod;

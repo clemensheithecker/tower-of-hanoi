@@ -1,6 +1,6 @@
 import { HanoiError, HanoiTower } from "../types";
 
-export const sortDisksByPosition = (rod: HanoiTower): HanoiTower => {
+const sortDisksByPosition = (rod: HanoiTower): HanoiTower => {
   if (rod.disks.length === 0) {
     throw new Error(HanoiError.TowerContentHasNoDisks);
   }
@@ -12,3 +12,5 @@ export const sortDisksByPosition = (rod: HanoiTower): HanoiTower => {
 
   return rodWithSortedDisks;
 };
+
+export default sortDisksByPosition;

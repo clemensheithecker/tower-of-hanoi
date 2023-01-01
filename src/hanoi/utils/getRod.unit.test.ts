@@ -1,5 +1,5 @@
 import { HanoiTower } from "../types";
-import { getRod } from "./getRod";
+import getRod from "./getRod";
 
 describe("getRod", () => {
   it("should return the rod for a given rod number", () => {

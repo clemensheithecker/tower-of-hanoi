@@ -1,4 +1,4 @@
-import { roundNumber } from "./roundNumber";
+import roundNumber from "./roundNumber";
 
 describe("roundNumber", () => {
   it("should round a number to the specified number of decimal places", () => {

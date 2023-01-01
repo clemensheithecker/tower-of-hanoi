@@ -1,5 +1,5 @@
 import { HanoiDisk, HanoiTower } from "../types";
-import { addDiskToRod } from "./addDiskToRod";
+import addDiskToRod from "./addDiskToRod";
 
 describe("addDiskToRod", () => {
   it("should add a new disk to the top of the rod", () => {

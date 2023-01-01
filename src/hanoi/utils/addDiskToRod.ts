@@ -1,6 +1,6 @@
 import { HanoiDisk, HanoiTower } from "../types";
 
-export const addDiskToRod = ({
+const addDiskToRod = ({
   rod,
   disk,
 }: {
@@ -12,3 +12,5 @@ export const addDiskToRod = ({
 
   return updatedRod;
 };
+
+export default addDiskToRod;

@@ -1,7 +1,7 @@
 import { HanoiTower } from "../types";
-import hasWon from "./hasWon";
+import getHasWon from "./getHasWon";
 
-describe("hasWon", () => {
+describe("getHasWon", () => {
   it("should return true if the second rod has all disks and the first rod is the start rod", () => {
     // Given
     const RODS: HanoiTower[] = [
@@ -22,14 +22,14 @@ describe("hasWon", () => {
     const EXPECTED_HAS_WON = true;
 
     // When
-    const hasWonSecondRodHasAllDisks = hasWon({
+    const getHasWonSecondRodHasAllDisks = getHasWon({
       rods: RODS,
       totalDisks: TOTAL_DISKS,
       startRodNumber: START_ROD_NUMBER,
     });
 
     // Then
-    expect(hasWonSecondRodHasAllDisks).toEqual(EXPECTED_HAS_WON);
+    expect(getHasWonSecondRodHasAllDisks).toEqual(EXPECTED_HAS_WON);
   });
 
   it("should return true if the third rod has all disks and the first rod is the start rod", () => {
@@ -52,14 +52,14 @@ describe("hasWon", () => {
     const EXPECTED_HAS_WON = true;
 
     // When
-    const hasWonThirdRodHasAllDisks = hasWon({
+    const getHasWonThirdRodHasAllDisks = getHasWon({
       rods: RODS,
       totalDisks: TOTAL_DISKS,
       startRodNumber: START_ROD_NUMBER,
     });
 
     // Then
-    expect(hasWonThirdRodHasAllDisks).toEqual(EXPECTED_HAS_WON);
+    expect(getHasWonThirdRodHasAllDisks).toEqual(EXPECTED_HAS_WON);
   });
 
   it("should return false if neither the second nor the third rod has all disks and the first rod is the start rod", () => {
@@ -82,14 +82,14 @@ describe("hasWon", () => {
     const EXPECTED_HAS_WON = false;
 
     // When
-    const hasWonFirstRodHasAllDisks = hasWon({
+    const getHasWonFirstRodHasAllDisks = getHasWon({
       rods: RODS,
       totalDisks: TOTAL_DISKS,
       startRodNumber: START_ROD_NUMBER,
     });
 
     // Then
-    expect(hasWonFirstRodHasAllDisks).toEqual(EXPECTED_HAS_WON);
+    expect(getHasWonFirstRodHasAllDisks).toEqual(EXPECTED_HAS_WON);
   });
 
   it("should throw an error if the rods array is empty", () => {
@@ -100,15 +100,15 @@ describe("hasWon", () => {
     const EXPECTED_ERROR_MESSAGE = "The tower contents array is empty.";
 
     // When
-    const hasWonEmptyRods = () =>
-      hasWon({
+    const getHasWonEmptyRods = () =>
+      getHasWon({
         rods: RODS,
         totalDisks: TOTAL_DISKS,
         startRodNumber: START_ROD_NUMBER,
       });
 
     // Then
-    expect(hasWonEmptyRods).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(getHasWonEmptyRods).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 
   it("should throw an error if the total number of disks is less than 3", () => {
@@ -129,14 +129,14 @@ describe("hasWon", () => {
     const EXPECTED_ERROR_MESSAGE = "The number of disks must be at least 3.";
 
     // When
-    const hasWonLessThanThreeDisks = () =>
-      hasWon({
+    const getHasWonLessThanThreeDisks = () =>
+      getHasWon({
         rods: RODS,
         totalDisks: TOTAL_DISKS,
         startRodNumber: START_ROD_NUMBER,
       });
 
     // Then
-    expect(hasWonLessThanThreeDisks).toThrow(EXPECTED_ERROR_MESSAGE);
+    expect(getHasWonLessThanThreeDisks).toThrow(EXPECTED_ERROR_MESSAGE);
   });
 });

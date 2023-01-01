@@ -1,5 +1,5 @@
 import { HanoiTower } from "../types";
-import { removeTopDiskFromRod } from "./removeTopDiskFromRod";
+import removeTopDiskFromRod from "./removeTopDiskFromRod";
 
 describe("removeTopDiskFromRod", () => {
   it("should remove the top disk from the rod", () => {
