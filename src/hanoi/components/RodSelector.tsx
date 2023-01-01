@@ -3,20 +3,20 @@ import Rod from "./Rod";
 
 const RodSelector = ({
   handleClick,
-  towerNumber,
+  rodNumber,
   disks,
   selected,
   numberDisks,
 }: {
-  handleClick: (towerNumber: number) => void;
-  towerNumber: number;
+  handleClick: (rodNumber: number) => void;
+  rodNumber: number;
   disks: HanoiDisk[];
   selected?: boolean;
   numberDisks: number;
 }) => {
   return (
     <button
-      onClick={() => handleClick(towerNumber)}
+      onClick={() => handleClick(rodNumber)}
       className={`flex flex-col rounded-2xl p-6 shadow sm:p-8 ${
         selected
           ? "bg-gray-200 shadow-md ring-2 ring-gray-300"
@@ -29,7 +29,7 @@ const RodSelector = ({
             selected ? "text-blue-600" : "text-gray-900"
           }`}
         >
-          Rod {towerNumber + 1}
+          Rod {rodNumber + 1}
         </h3>
       </div>
       <div className="relative mt-8 flex aspect-[4/3] w-full justify-center">

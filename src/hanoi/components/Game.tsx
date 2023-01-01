@@ -1,11 +1,11 @@
-import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 import { Notification } from "../../components";
+import { displayConfetti } from "../../utils";
 import { HanoiError, HanoiTower } from "../types";
 import { getHasWon, getInitialRodStates, getRod, moveTopDisk } from "../utils";
 import GameRestartButton from "./GameRestartButton";
 import GameSetup from "./GameSetup";
-import TowerSelector from "./RodSelector";
+import RodSelector from "./RodSelector";
 
 const BACKGROUND_COLOR_CLASSES = [
   "bg-rose-500",
@@ -24,13 +24,12 @@ const Game = () => {
     backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
   });
 
-  const [selected, setSelected] = useState<number | undefined>(undefined);
-  const [towerContents, setTowerContents] =
-    useState<HanoiTower[]>(initialRodStates);
+  const [hasWon, setHasWon] = useState(false);
   const [notification, setNotification] = useState<
     { message: string; type: string } | undefined
   >(undefined);
-  const [hasWon, setHasWon] = useState(false);
+  const [rods, setRods] = useState<HanoiTower[]>(initialRodStates);
+  const [selected, setSelected] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     if (hasWon) {
@@ -39,12 +38,7 @@ const Game = () => {
         type: "success",
       });
 
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        disableForReducedMotion: true,
-      });
+      displayConfetti();
     }
   }, [hasWon]);
 
@@ -58,25 +52,25 @@ const Game = () => {
     }
   }, [notification]);
 
-  const handleClick = (towerNumber: number) => {
+  const handleSelectRod = (rodNumber: number) => {
     if (selected === undefined) {
-      setSelected(towerNumber);
-    } else if (selected === towerNumber) {
+      setSelected(rodNumber);
+    } else if (selected === rodNumber) {
       setSelected(undefined);
     } else {
       try {
-        const updatedTowerContents = moveTopDisk({
+        const updatedRodStates = moveTopDisk({
           fromRodNumber: selected,
-          toRodNumber: towerNumber,
-          rods: towerContents,
+          toRodNumber: rodNumber,
+          rods: rods,
         });
 
-        setTowerContents(updatedTowerContents);
+        setRods(updatedRodStates);
         setSelected(undefined);
 
         if (
           getHasWon({
-            rods: towerContents,
+            rods: rods,
             startRodNumber: 0,
             totalDisks: TOTAL_DISKS,
           })
@@ -84,7 +78,7 @@ const Game = () => {
           setHasWon(true);
         }
       } catch (error) {
-        let message = "Unknown Error";
+        let message = "Unknown Error.";
         if (error instanceof Error) message = error.message;
 
         setNotification({
@@ -106,17 +100,17 @@ const Game = () => {
           />
         )}
         {[...Array(TOTAL_RODS)].map((_, index) => {
-          const towerContent = getRod({
+          const rod = getRod({
             rodNumber: index,
-            rods: towerContents,
+            rods: rods,
           });
 
-          if (towerContent) {
+          if (rod) {
             return (
-              <TowerSelector
-                handleClick={handleClick}
-                towerNumber={index}
-                disks={towerContent.disks}
+              <RodSelector
+                handleClick={handleSelectRod}
+                rodNumber={index}
+                disks={rod.disks}
                 selected={selected === index}
                 numberDisks={TOTAL_DISKS}
                 key={index}

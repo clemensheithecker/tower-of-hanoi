@@ -1,5 +1,5 @@
-import TowerOfHanoi from "./hanoi/components/Game";
 import { PageLayout } from "./components/Layout";
+import { TowerOfHanoi } from "./hanoi/components";
 
 const App = () => {
   return (
