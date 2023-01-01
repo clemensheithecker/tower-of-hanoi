@@ -15,21 +15,32 @@ const BACKGROUND_COLOR_CLASSES = [
   "bg-violet-500",
   "bg-fuchsia-500",
 ];
-const TOTAL_DISKS = 3;
+const INITIAL_TOTAL_DISKS = 4;
 const TOTAL_RODS = 3;
 
 const Game = () => {
+  const [totalDisks, setTotalDisks] = useState(INITIAL_TOTAL_DISKS);
+
   const initialRodStates = getInitialRodStates({
-    totalDisks: TOTAL_DISKS,
+    totalDisks,
     backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
   });
 
-  const [hasWon, setHasWon] = useState(false);
+  const [rods, setRods] = useState<HanoiRod[]>(initialRodStates);
+  const [selected, setSelected] = useState<number | undefined>(undefined);
   const [notification, setNotification] = useState<
     { message: string; type: string } | undefined
   >(undefined);
-  const [rods, setRods] = useState<HanoiRod[]>(initialRodStates);
-  const [selected, setSelected] = useState<number | undefined>(undefined);
+  const [hasWon, setHasWon] = useState(false);
+
+  useEffect(() => {
+    const updatedInitialRodStates = getInitialRodStates({
+      totalDisks,
+      backgroundColorClasses: BACKGROUND_COLOR_CLASSES,
+    });
+
+    setRods(updatedInitialRodStates);
+  }, [totalDisks]);
 
   useEffect(() => {
     if (hasWon) {
@@ -52,7 +63,7 @@ const Game = () => {
     }
   }, [notification]);
 
-  const handleSelectRod = (rodNumber: number) => {
+  const handleSelectRod = (rodNumber: number): void => {
     if (selected === undefined) {
       setSelected(rodNumber);
     } else if (selected === rodNumber) {
@@ -72,7 +83,7 @@ const Game = () => {
           getHasWon({
             rods: rods,
             startRodNumber: 0,
-            totalDisks: TOTAL_DISKS,
+            totalDisks,
           })
         ) {
           setHasWon(true);
@@ -91,7 +102,7 @@ const Game = () => {
 
   return (
     <>
-      <GameSetup />
+      <GameSetup totalDisks={totalDisks} setTotalDisks={setTotalDisks} />
       <section className="mt-12 grid w-full grid-cols-2 gap-4 sm:grid-cols-3">
         {notification && (
           <Notification
@@ -112,7 +123,7 @@ const Game = () => {
                 rodNumber={index}
                 disks={rod.disks}
                 selected={selected === index}
-                numberDisks={TOTAL_DISKS}
+                totalDisks={totalDisks}
                 key={index}
               />
             );

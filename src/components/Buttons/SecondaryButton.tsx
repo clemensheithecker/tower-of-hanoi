@@ -1,7 +1,5 @@
 import React from "react";
 
-// icon?: HTMLElement & SVGElement;
-
 const SecondaryButton = ({
   children,
   onClick,

@@ -6,13 +6,13 @@ const RodSelector = ({
   rodNumber,
   disks,
   selected,
-  numberDisks,
+  totalDisks,
 }: {
   handleClick: (rodNumber: number) => void;
   rodNumber: number;
   disks: HanoiDisk[];
   selected?: boolean;
-  numberDisks: number;
+  totalDisks: number;
 }) => {
   return (
     <button
@@ -33,7 +33,7 @@ const RodSelector = ({
         </h3>
       </div>
       <div className="relative mt-8 flex aspect-[4/3] w-full justify-center">
-        <Rod disks={disks} numberDisks={numberDisks} />
+        <Rod disks={disks} totalDisks={totalDisks} />
       </div>
     </button>
   );

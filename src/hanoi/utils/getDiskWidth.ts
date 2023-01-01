@@ -13,7 +13,7 @@ const getDiskWidth = ({
   }
 
   if (totalDisks < 0) {
-    throw new Error(HanoiError.InvalidTotalDisks);
+    throw new Error(HanoiError.TotalDisksNegative);
   }
 
   const MIN_WIDTH = 0.35;

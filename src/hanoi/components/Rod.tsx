@@ -4,15 +4,15 @@ import RodSkeleton from "./RodSkeleton";
 
 const Rod = ({
   disks,
-  numberDisks,
+  totalDisks,
 }: {
   disks: HanoiDisk[];
-  numberDisks: number;
+  totalDisks: number;
 }) => {
   const BASE_HEIGHT = 0.075;
-  const diskHeight = 0.8 / numberDisks;
+  const diskHeight = 0.8 / totalDisks;
 
-  if (numberDisks < 3) {
+  if (totalDisks < 3) {
     throw new Error(HanoiError.MinimumNumberOfDisksNotMet);
   }
 
