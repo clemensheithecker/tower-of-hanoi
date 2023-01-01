@@ -149,8 +149,7 @@ describe("moveTopDisk", () => {
       },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_ERROR_MESSAGE =
-      "A disk cannot be moved from an empty tower.";
+    const EXPECTED_ERROR_MESSAGE = "A disk cannot be moved from an empty rod.";
 
     // When
     const moveTopDiskEmptyRod = () =>
@@ -181,7 +180,7 @@ describe("moveTopDisk", () => {
       { towerNumber: 1, disks: [] },
       { towerNumber: 2, disks: [] },
     ];
-    const EXPECTED_ERROR_MESSAGE = "A disk cannot be moved to the same tower.";
+    const EXPECTED_ERROR_MESSAGE = "A disk cannot be moved to the same rod.";
 
     // When
     const moveTopDiskSameRod = () =>
@@ -213,7 +212,7 @@ describe("moveTopDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      "The tower content for tower number 4 could not be found.";
+      "The rod with rod number 4 could not be found.";
 
     // When
     const moveTopDiskInvalidFromRod = () =>
@@ -245,7 +244,7 @@ describe("moveTopDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      "The tower content for tower number 5 could not be found.";
+      "The rod with rod number 5 could not be found.";
 
     // When
     const moveTopDiskInvalidToRod = () =>
@@ -277,7 +276,7 @@ describe("moveTopDisk", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      "The tower content for tower number 4 could not be found.";
+      "The rod with rod number 4 could not be found.";
 
     // When
     const moveTopDiskInvalidFromAndToRods = () =>

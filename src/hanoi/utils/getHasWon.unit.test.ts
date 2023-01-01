@@ -97,7 +97,7 @@ describe("getHasWon", () => {
     const RODS: HanoiTower[] = [];
     const TOTAL_DISKS = 4;
     const START_ROD_NUMBER = 0;
-    const EXPECTED_ERROR_MESSAGE = "The tower contents array is empty.";
+    const EXPECTED_ERROR_MESSAGE = "The rods array is empty.";
 
     // When
     const getHasWonEmptyRods = () =>

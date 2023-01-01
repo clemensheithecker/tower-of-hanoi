@@ -55,7 +55,7 @@ describe("getRod", () => {
       { towerNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
-      "The tower content for tower number 4 could not be found.";
+      "The rod with rod number 4 could not be found.";
 
     // When
     const getRodNotFound = () =>
@@ -73,7 +73,7 @@ describe("getRod", () => {
     const ROD_NUMBER = 0;
     const RODS: HanoiTower[] = [];
     const EXPECTED_ERROR_MESSAGE =
-      "The tower content for tower number 0 could not be found.";
+      "The rod with rod number 0 could not be found.";
 
     // When
     const getRodEmptyRods = () =>

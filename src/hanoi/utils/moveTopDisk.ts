@@ -22,11 +22,11 @@ const moveTopDisk = ({
   });
 
   if (fromRod === toRod) {
-    throw new Error(HanoiError.CannotMoveDiskToSameTower);
+    throw new Error(HanoiError.CannotMoveDiskToSameRod);
   }
 
   if (fromRod.disks.length === 0) {
-    throw new Error(HanoiError.CannotMoveDiskFromEmptyTower);
+    throw new Error(HanoiError.CannotMoveDiskFromEmptyRod);
   }
 
   if (toRod.disks.length !== 0) {

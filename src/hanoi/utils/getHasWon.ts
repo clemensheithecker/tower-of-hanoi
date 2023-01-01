@@ -10,7 +10,7 @@ const getHasWon = ({
   totalDisks: number;
 }): boolean => {
   if (rods.length === 0) {
-    throw new Error(HanoiError.TowerContentsArrayEmpty);
+    throw new Error(HanoiError.RodsArrayEmpty);
   }
 
   if (totalDisks < 3) {

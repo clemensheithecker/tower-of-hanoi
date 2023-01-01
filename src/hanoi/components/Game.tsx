@@ -117,7 +117,7 @@ const Game = () => {
               />
             );
           } else {
-            throw new Error(HanoiError.TowerContentNotFound);
+            throw new Error(HanoiError.RodNotFound);
           }
         })}
       </section>

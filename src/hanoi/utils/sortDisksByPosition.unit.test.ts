@@ -60,7 +60,7 @@ describe("sortDisksByPosition", () => {
       towerNumber: 1,
       disks: [],
     };
-    const EXPECTED_ERROR_MESSAGE = "The tower content does not have any disks.";
+    const EXPECTED_ERROR_MESSAGE = "The rod does not have any disks.";
 
     // When
     const sortDisksByPositionWithEmptyRod = () => sortDisksByPosition(ROD);

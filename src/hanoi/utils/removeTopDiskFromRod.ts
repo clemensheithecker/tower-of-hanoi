@@ -3,7 +3,7 @@ import sortDisksByPosition from "./sortDisksByPosition";
 
 const removeTopDiskFromRod = (rod: HanoiTower): HanoiTower => {
   if (rod.disks.length === 0) {
-    throw new Error(HanoiError.CannotRemoveTopDiskFromEmptyTower);
+    throw new Error(HanoiError.CannotRemoveTopDiskFromEmptyRod);
   }
 
   const orderedRod = sortDisksByPosition(rod);

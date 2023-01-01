@@ -11,10 +11,7 @@ const getRod = ({
 
   if (!rod) {
     throw new Error(
-      HanoiError.TowerContentNotFoundForTowerNumber.replace(
-        "%s",
-        rodNumber.toString()
-      )
+      HanoiError.RodNotFoundForRodNumber.replace("%s", rodNumber.toString())
     );
   }
 
