@@ -1,7 +1,7 @@
-import { HanoiError, HanoiTower } from "../types";
+import { HanoiError, HanoiRod } from "../types";
 import sortDisksByPosition from "./sortDisksByPosition";
 
-const removeTopDiskFromRod = (rod: HanoiTower): HanoiTower => {
+const removeTopDiskFromRod = (rod: HanoiRod): HanoiRod => {
   if (rod.disks.length === 0) {
     throw new Error(HanoiError.CannotRemoveTopDiskFromEmptyRod);
   }

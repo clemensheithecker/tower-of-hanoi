@@ -1,14 +1,14 @@
-import { HanoiDisk, HanoiTower } from "../types";
+import { HanoiDisk, HanoiRod } from "../types";
 
 const addDiskToRod = ({
   rod,
   disk,
 }: {
-  rod: HanoiTower;
+  rod: HanoiRod;
   disk: HanoiDisk;
-}): HanoiTower => {
+}): HanoiRod => {
   const topDisk: HanoiDisk = { ...disk, position: rod.disks.length };
-  const updatedRod: HanoiTower = { ...rod, disks: [...rod.disks, topDisk] };
+  const updatedRod: HanoiRod = { ...rod, disks: [...rod.disks, topDisk] };
 
   return updatedRod;
 };

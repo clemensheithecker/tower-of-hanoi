@@ -1,4 +1,4 @@
-import { HanoiError, HanoiTower } from "../types";
+import { HanoiError, HanoiRod } from "../types";
 import addDiskToRod from "./addDiskToRod";
 import getRod from "./getRod";
 import removeTopDiskFromRod from "./removeTopDiskFromRod";
@@ -10,8 +10,8 @@ const moveTopDisk = ({
 }: {
   fromRodNumber: number;
   toRodNumber: number;
-  rods: HanoiTower[];
-}): HanoiTower[] => {
+  rods: HanoiRod[];
+}): HanoiRod[] => {
   const fromRod = getRod({
     rodNumber: fromRodNumber,
     rods,

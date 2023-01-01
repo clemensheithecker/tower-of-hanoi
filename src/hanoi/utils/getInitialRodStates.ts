@@ -1,4 +1,4 @@
-import { HanoiError, HanoiTower } from "../types";
+import { HanoiError, HanoiRod } from "../types";
 import getBackgroundColorClass from "./getBackgroundColorClass";
 import getDiskWidth from "./getDiskWidth";
 
@@ -8,7 +8,7 @@ const getInitialRodStates = ({
 }: {
   totalDisks: number;
   backgroundColorClasses: string[];
-}): HanoiTower[] => {
+}): HanoiRod[] => {
   if (totalDisks < 3) {
     throw new Error(HanoiError.MinimumNumberOfDisksNotMet);
   }
@@ -17,9 +17,9 @@ const getInitialRodStates = ({
     throw new Error(HanoiError.BackgroundColorClassesArrayEmpty);
   }
 
-  const initialRods: HanoiTower[] = [
+  const initialRods: HanoiRod[] = [
     {
-      towerNumber: 0,
+      rodNumber: 0,
       disks: Array.from({ length: totalDisks }, (_, index) => ({
         position: index,
         width: getDiskWidth({ initialPosition: index, totalDisks }),
@@ -30,11 +30,11 @@ const getInitialRodStates = ({
       })),
     },
     {
-      towerNumber: 1,
+      rodNumber: 1,
       disks: [],
     },
     {
-      towerNumber: 2,
+      rodNumber: 2,
       disks: [],
     },
   ];

@@ -1,4 +1,4 @@
-import { HanoiTower } from "../types";
+import { HanoiRod } from "../types";
 import getInitialRods from "./getInitialRodStates";
 
 describe("getInitialRods", () => {
@@ -13,9 +13,9 @@ describe("getInitialRods", () => {
       "bg-violet-500",
       "bg-fuchsia-500",
     ];
-    const EXPECTED_INITIAL_RODS: HanoiTower[] = [
+    const EXPECTED_INITIAL_RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { backgroundColorClass: "bg-rose-500", position: 0, width: 0.8 },
           { backgroundColorClass: "bg-amber-500", position: 1, width: 0.58 },
@@ -23,11 +23,11 @@ describe("getInitialRods", () => {
         ],
       },
       {
-        towerNumber: 1,
+        rodNumber: 1,
         disks: [],
       },
       {
-        towerNumber: 2,
+        rodNumber: 2,
         disks: [],
       },
     ];

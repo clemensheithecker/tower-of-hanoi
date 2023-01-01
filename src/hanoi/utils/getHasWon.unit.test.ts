@@ -1,13 +1,13 @@
-import { HanoiTower } from "../types";
+import { HanoiRod } from "../types";
 import getHasWon from "./getHasWon";
 
 describe("getHasWon", () => {
   it("should return true if the second rod has all disks and the first rod is the start rod", () => {
     // Given
-    const RODS: HanoiTower[] = [
-      { towerNumber: 0, disks: [] },
+    const RODS: HanoiRod[] = [
+      { rodNumber: 0, disks: [] },
       {
-        towerNumber: 1,
+        rodNumber: 1,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -15,7 +15,7 @@ describe("getHasWon", () => {
           { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const TOTAL_DISKS = 4;
     const START_ROD_NUMBER = 0;
@@ -34,11 +34,11 @@ describe("getHasWon", () => {
 
   it("should return true if the third rod has all disks and the first rod is the start rod", () => {
     // Given
-    const RODS: HanoiTower[] = [
-      { towerNumber: 0, disks: [] },
-      { towerNumber: 1, disks: [] },
+    const RODS: HanoiRod[] = [
+      { rodNumber: 0, disks: [] },
+      { rodNumber: 1, disks: [] },
       {
-        towerNumber: 2,
+        rodNumber: 2,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -64,9 +64,9 @@ describe("getHasWon", () => {
 
   it("should return false if neither the second nor the third rod has all disks and the first rod is the start rod", () => {
     // Given
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -74,8 +74,8 @@ describe("getHasWon", () => {
           { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 1, disks: [] },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 1, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const TOTAL_DISKS = 4;
     const START_ROD_NUMBER = 0;
@@ -94,7 +94,7 @@ describe("getHasWon", () => {
 
   it("should throw an error if the rods array is empty", () => {
     // Given
-    const RODS: HanoiTower[] = [];
+    const RODS: HanoiRod[] = [];
     const TOTAL_DISKS = 4;
     const START_ROD_NUMBER = 0;
     const EXPECTED_ERROR_MESSAGE = "The rods array is empty.";
@@ -113,16 +113,16 @@ describe("getHasWon", () => {
 
   it("should throw an error if the total number of disks is less than 3", () => {
     // Given
-    const RODS: HanoiTower[] = [
-      { towerNumber: 0, disks: [] },
+    const RODS: HanoiRod[] = [
+      { rodNumber: 0, disks: [] },
       {
-        towerNumber: 1,
+        rodNumber: 1,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.35, backgroundColorClass: "bg-amber-500" },
         ],
       },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const TOTAL_DISKS = 2;
     const START_ROD_NUMBER = 0;

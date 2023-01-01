@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Notification } from "../../components";
 import { displayConfetti } from "../../utils";
-import { HanoiError, HanoiTower } from "../types";
+import { HanoiError, HanoiRod } from "../types";
 import { getHasWon, getInitialRodStates, getRod, moveTopDisk } from "../utils";
 import GameRestartButton from "./GameRestartButton";
 import GameSetup from "./GameSetup";
@@ -28,7 +28,7 @@ const Game = () => {
   const [notification, setNotification] = useState<
     { message: string; type: string } | undefined
   >(undefined);
-  const [rods, setRods] = useState<HanoiTower[]>(initialRodStates);
+  const [rods, setRods] = useState<HanoiRod[]>(initialRodStates);
   const [selected, setSelected] = useState<number | undefined>(undefined);
 
   useEffect(() => {

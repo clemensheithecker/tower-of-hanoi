@@ -1,4 +1,4 @@
-import { HanoiTower } from "../types";
+import { HanoiRod } from "../types";
 import moveTopDisk from "./moveTopDisk";
 
 describe("moveTopDisk", () => {
@@ -6,9 +6,9 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 0;
     const TO_ROD_NUMBER = 1;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -16,12 +16,12 @@ describe("moveTopDisk", () => {
           { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 1, disks: [] },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 1, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
-    const EXPECTED_RODS: HanoiTower[] = [
+    const EXPECTED_RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -29,12 +29,12 @@ describe("moveTopDisk", () => {
         ],
       },
       {
-        towerNumber: 1,
+        rodNumber: 1,
         disks: [
           { position: 0, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
 
     // When
@@ -52,9 +52,9 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 0;
     const TO_ROD_NUMBER = 1;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -62,12 +62,12 @@ describe("moveTopDisk", () => {
         ],
       },
       {
-        towerNumber: 1,
+        rodNumber: 1,
         disks: [
           { position: 0, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
       "A larger disk cannot be moved onto a smaller disk.";
@@ -90,22 +90,22 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 2;
     const TO_ROD_NUMBER = 1;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
         ],
       },
       {
-        towerNumber: 1,
+        rodNumber: 1,
         disks: [
           { position: 0, width: 0.5, backgroundColorClass: "bg-emerald-500" },
           { position: 1, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
       {
-        towerNumber: 2,
+        rodNumber: 2,
         disks: [
           { position: 0, width: 0.65, backgroundColorClass: "bg-amber-500" },
         ],
@@ -132,9 +132,9 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 2;
     const TO_ROD_NUMBER = 1;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -142,12 +142,12 @@ describe("moveTopDisk", () => {
         ],
       },
       {
-        towerNumber: 1,
+        rodNumber: 1,
         disks: [
           { position: 0, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE = "A disk cannot be moved from an empty rod.";
 
@@ -167,9 +167,9 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 0;
     const TO_ROD_NUMBER = 0;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -177,8 +177,8 @@ describe("moveTopDisk", () => {
           { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 1, disks: [] },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 1, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE = "A disk cannot be moved to the same rod.";
 
@@ -198,9 +198,9 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 4;
     const TO_ROD_NUMBER = 1;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -208,8 +208,8 @@ describe("moveTopDisk", () => {
           { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 1, disks: [] },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 1, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
       "The rod with rod number 4 could not be found.";
@@ -230,9 +230,9 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 0;
     const TO_ROD_NUMBER = 5;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -240,8 +240,8 @@ describe("moveTopDisk", () => {
           { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 1, disks: [] },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 1, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
       "The rod with rod number 5 could not be found.";
@@ -262,9 +262,9 @@ describe("moveTopDisk", () => {
     // Given
     const FROM_ROD_NUMBER = 4;
     const TO_ROD_NUMBER = 5;
-    const RODS: HanoiTower[] = [
+    const RODS: HanoiRod[] = [
       {
-        towerNumber: 0,
+        rodNumber: 0,
         disks: [
           { position: 0, width: 0.8, backgroundColorClass: "bg-rose-500" },
           { position: 1, width: 0.65, backgroundColorClass: "bg-amber-500" },
@@ -272,8 +272,8 @@ describe("moveTopDisk", () => {
           { position: 3, width: 0.35, backgroundColorClass: "bg-sky-500" },
         ],
       },
-      { towerNumber: 1, disks: [] },
-      { towerNumber: 2, disks: [] },
+      { rodNumber: 1, disks: [] },
+      { rodNumber: 2, disks: [] },
     ];
     const EXPECTED_ERROR_MESSAGE =
       "The rod with rod number 4 could not be found.";

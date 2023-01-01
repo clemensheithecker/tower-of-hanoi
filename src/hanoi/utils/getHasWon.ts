@@ -1,11 +1,11 @@
-import { HanoiError, HanoiTower } from "../types";
+import { HanoiError, HanoiRod } from "../types";
 
 const getHasWon = ({
   rods,
   startRodNumber,
   totalDisks,
 }: {
-  rods: HanoiTower[];
+  rods: HanoiRod[];
   startRodNumber: number;
   totalDisks: number;
 }): boolean => {
@@ -17,7 +17,7 @@ const getHasWon = ({
     throw new Error(HanoiError.MinimumNumberOfDisksNotMet);
   }
 
-  const startRod = rods.find((rod) => rod.towerNumber === startRodNumber);
+  const startRod = rods.find((rod) => rod.rodNumber === startRodNumber);
 
   if (!startRod) {
     throw new Error(HanoiError.InvalidStartRodNumber);
@@ -28,7 +28,7 @@ const getHasWon = ({
   }
 
   for (const rod of rods) {
-    if (rod.towerNumber !== startRodNumber && rod.disks.length === totalDisks) {
+    if (rod.rodNumber !== startRodNumber && rod.disks.length === totalDisks) {
       return true;
     }
   }

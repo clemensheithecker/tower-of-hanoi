@@ -1,13 +1,13 @@
-import { HanoiError, HanoiTower } from "../types";
+import { HanoiError, HanoiRod } from "../types";
 
 const getRod = ({
   rodNumber,
   rods,
 }: {
   rodNumber: number;
-  rods: HanoiTower[];
-}): HanoiTower => {
-  const rod = rods.find((rod) => rod.towerNumber === rodNumber);
+  rods: HanoiRod[];
+}): HanoiRod => {
+  const rod = rods.find((rod) => rod.rodNumber === rodNumber);
 
   if (!rod) {
     throw new Error(
