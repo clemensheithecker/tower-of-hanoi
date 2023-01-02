@@ -1,0 +1,17 @@
+export enum HanoiError {
+  BackgroundColorClassesArrayEmpty = "The background color classes array is empty.",
+  CannotMoveDiskFromEmptyRod = "A disk cannot be moved from an empty rod.",
+  CannotMoveDiskToSameRod = "A disk cannot be moved to the same rod.",
+  CannotMoveLargerDiskOntoSmallerDisk = "A larger disk cannot be moved onto a smaller disk.",
+  CannotRemoveTopDiskFromEmptyRod = "The top disk cannot be removed from an empty rod.",
+  InvalidInitialDiskPosition = "The initial position of a disk cannot be negative.",
+  InvalidNotificationType = "The notification type is invalid.",
+  InvalidStartRodNumber = "The start rod number must be between 0 and 2.",
+  MinimumNumberOfDisksNotMet = "The number of disks must be at least 3.",
+  RodHasNoDisks = "The rod does not have any disks.",
+  RodNotFound = "The rod could not be found.",
+  RodNotFoundForRodNumber = "The rod with rod number %s could not be found.",
+  RodsArrayEmpty = "The rods array is empty.",
+  TotalDisksNegative = "The total number of disks cannot be negative.",
+  TotalDisksOutOfRange = "The total number of disks must be between 3 and 10.",
+}
